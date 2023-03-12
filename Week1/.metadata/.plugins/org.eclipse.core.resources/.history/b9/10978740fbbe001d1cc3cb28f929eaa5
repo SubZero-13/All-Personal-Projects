@@ -1,0 +1,30 @@
+package com.cardetails;
+
+import com.inputvalidator.Validator;
+import com.exceptions.*;
+public class Car {
+	private String carModel;
+	private String carType;
+	private double carPrice;
+	private String insuranceTrype;
+
+	public Car(String model, String type, double price, String insurance) throws InvalidInputException {
+
+	}
+
+	// Setting Car Model
+	public void setCarModel(String model) throws InvalidInputException {
+		if(validateCarModel(model)) {
+			this.carModel = model
+		}
+		else {
+			
+		}
+	}
+
+	// Geting Car Model
+	public String getCarModel() {
+		return carModel;
+	}
+
+}

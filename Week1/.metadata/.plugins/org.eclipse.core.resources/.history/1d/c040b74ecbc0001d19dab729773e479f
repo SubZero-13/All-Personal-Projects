@@ -1,0 +1,59 @@
+package com.app;
+
+import java.util.Scanner;
+import com.cardetails.*;
+import com.driver.*;
+
+public class Main {
+	public static void main(String args[]) {
+		Scanner scanner = new Scanner(System.in);
+		char choice = 'y';
+		while (true) {
+//			try {
+//				System.out.println("Enter details of car:");
+//				System.out.println("Model: ");
+//				String carModel = scanner.nextLine();
+//	
+//				System.out.println("Type (Hatchback/Sedan/SUV): ");
+//				String carType = scanner.nextLine();
+//
+//				System.out.println("Insurance Type (Basic/Premium): ");
+//				String insuranceType = scanner.nextLine();
+//
+//				System.out.println("Price: ");
+//				double carPrice = scanner.nextDouble();
+//				
+//
+//				Car car = new Car(carModel, carType, carPrice, insuranceType);
+//				CarInsurance carinsurance = new CarInsurance();
+//				double price = car.getCarPrice();
+//				String model = car.getCarModel();
+//				String type = car.getCarType();
+//				String insurance_type = car.getInsuranceType();
+//				double insuranceToBePaid = carinsurance.calculateInsurance(price, type, insurance_type);
+//
+//				System.out.println("--------------------------------");
+//				System.out.println("Car Model: " + model);
+//				System.out.println("Car Type: " + type);
+//				System.out.println("Car Price: " + price);
+//				System.out.println("Total Car Insurance to Be Paid: " + insuranceToBePaid);
+//				System.out.println("--------------------------------");
+//				System.out.println("Do You Want to enter details of any other Car(y/n): ");
+//				choice = scanner.next().charAt(0);
+//				scanner.nextLine();
+//				if (choice == 'n')
+//					break;
+//
+//			} catch (Exception e) {
+//				System.out.println(e.getMessage());
+//			}
+			
+
+			InputHandler input = new InputHandler();
+			Car car = input.getCarDetailsFromUser();
+			Output output = new Output();
+			output.printCarDetails(car);
+			
+		}
+	}
+}

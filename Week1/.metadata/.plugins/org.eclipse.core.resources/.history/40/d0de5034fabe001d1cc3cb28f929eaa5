@@ -1,0 +1,25 @@
+package com.cardetails;
+import com.inputvalidator.Validator;
+public class Car {
+	private String carModel;
+	private String carType;
+	private double carPrice;
+	private String insuranceTrype;
+
+	public Car(String model, String type, double price, String insurance) {
+
+	}
+
+	// Setting Car Model
+	public void setCarModel(String model) {
+		if(validateCarModel(model)) {
+			
+		}
+	}
+
+	// Geting Car Model
+	public String getCarModel() {
+		return carModel;
+	}
+
+}

@@ -1,0 +1,16 @@
+package com.app;
+
+import com.cardetails.*;
+
+public class Main {
+	public static void main(String args[]) {
+		try {
+		Car car = new Car("Abc", "Swift", 200000.02, "Basic");
+		car.print();
+		}
+		catch(Exception e) {
+			System.out.print(e);
+		}
+		
+	}
+}

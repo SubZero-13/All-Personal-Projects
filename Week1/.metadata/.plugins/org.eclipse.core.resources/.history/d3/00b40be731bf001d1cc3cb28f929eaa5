@@ -1,0 +1,34 @@
+package com.cardetails;
+
+import com.constants.*;
+import com.exceptions.*;
+
+public class CarInsurance implements Insurance {
+	Constant c = new Constant();
+
+	private double getPremiumRate(String carType) {
+		
+        switch (carType) {
+            case "Hatchback:
+                return c.HATCHBACK_PREMIUM_RATE;
+            case "Sedan":
+                return c.SEDAN_PREMIUM_RATE;
+            case "SUV":
+                return c.SUV_PREMIUM_RATE;
+            default:
+                throw new InvalidInputException("Invalid car type");
+        }
+    }
+
+	@Override
+	public double calculateInsurance(double carCostPrice, String carType, String insuranceType) {
+		double premium  = 0.0;
+		if (insuranceType.equals(c.BASIC_INSURANCE)) {
+			premium = c.PREMIUM_SURCHARGE_RATE * premium + carCostPrice;
+		}
+
+		double premium = carCostPrice * getPremiumRate(carType);
+		premium += c.PREMIUM_SURCHARGE_RATE * premium;
+		return premium;
+	}
+}
