@@ -1,9 +1,11 @@
+// This code defines a class named Car that represents a car and its details.
+// The purpose of this code is to set and get the details of a car, such as 
+// its model, type, price, and insurance type.
 package com.cardetails;
 
 //Package Import Starts Here
 import com.inputvalidator.*;
 import com.exceptions.*;
-
 // Package Import Ends Here
 
 public class Car {
@@ -12,8 +14,10 @@ public class Car {
 	private double carPrice;
 	private String insuranceType;
 
+	// Creating an instance of the Validator class to validate the user input.
 	Validator validate = new Validator();
 
+	// Constructor to initialize the car details.
 	public Car(String model, String type, double price, String insurance) throws InvalidInputException {
 		setCarModel(model);
 		setCarType(type);
