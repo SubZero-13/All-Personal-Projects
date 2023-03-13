@@ -18,9 +18,10 @@ public class Output {
 			String type = car.getCarType();
 			double price = car.getCarPrice();
 			String insuranceType = car.getInsuranceType();
+			
 			CarInsurance carinsurance = new CarInsurance();
-
 			double insurancePaid = carinsurance.calculateInsurance(price, type, insuranceType);
+			
 			System.out.println("Car Model: " + model);
 			System.out.println("Car Type: " + type);
 			System.out.println("Car Price: " + price);

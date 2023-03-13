@@ -3,10 +3,10 @@ package com.inputvalidator;
 // Package Import Starts
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+import com.enums.*;
 // Package Import ends
 
 public class Validator {
-
 	// Validate Car Model
 	public boolean validateCarModel(String model) {
 		Pattern p = Pattern.compile("^[ A-Za-z]+$");
@@ -16,7 +16,7 @@ public class Validator {
 
 	// Validating Car Type
 	public boolean validateCarType(String model) {
-		if (model.equals("Hatchback") || model.equals("Sedan") || model.equals("SUV")) {
+		if (model.equals(CarType.HATCHBACK.toString()) || model.equals(CarType.SEDAN.toString()) || model.equals(CarType.SUV.toString())) {
 			return true;
 		}
 		return false;
@@ -31,7 +31,7 @@ public class Validator {
 
 	// Validating Car Insurance
 	public boolean validateCarInsurance(String insurance) {
-		if (insurance.equals("Basic") || insurance.equals("Premium")) {
+		if (insurance.equals(InsuranceType.BASIC.getValue()) || insurance.equals(InsuranceType.PREMIUM.getValue())) {
 			return true;
 		}
 		return false;

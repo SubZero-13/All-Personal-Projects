@@ -5,7 +5,7 @@ package com.cardetails;
 
 import com.constants.*; // Importing the necessary constants from the "constants" package.
 import com.exceptions.*; // Importing the necessary exceptions from the "exceptions" package.
-
+import com.enums.*;
 public class CarInsurance implements Insurance {
 
 	// This method returns the premium rate for a given car type.
@@ -14,11 +14,11 @@ public class CarInsurance implements Insurance {
 	private double getPremiumRate(String carType) throws InvalidInputException {
 		switch (carType) {
 		case Constant.HATCHBACK_TYPE:
-			return Constant.HATCHBACK_PREMIUM_RATE;
+			return CarType.HATCHBACK.getPremiumRate();
 		case Constant.SEDAN_TYPE:
-			return Constant.SEDAN_PREMIUM_RATE;
+			return CarType.SEDAN.getPremiumRate();
 		case Constant.SUV_TYPE:
-			return Constant.SUV_PREMIUM_RATE;
+			return CarType.SUV.getPremiumRate();
 		default:
 			throw new InvalidInputException("Invalid car type");
 		}
@@ -32,7 +32,7 @@ public class CarInsurance implements Insurance {
 	public double calculateInsurance(double carCostPrice, String carType, String insuranceType)
 			throws InvalidInputException {
 		double premium = 0.0;
-		if (insuranceType.equals(Constant.BASIC_INSURANCE)) { // Checking if insurance type is BASIC_INSURANCE.
+		if (insuranceType.equals(InsuranceType.BASIC.getValue())) { // Checking if insurance type is BASIC_INSURANCE.
 			premium = carCostPrice * getPremiumRate(carType); // Calculating the premium without any surcharge.
 			return premium;
 		} else {

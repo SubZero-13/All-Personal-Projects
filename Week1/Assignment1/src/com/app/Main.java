@@ -5,19 +5,25 @@ package com.app;
 
 import com.cardetails.*; // Importing the necessary classes from the "cardetails" package.
 import com.driver.*; // Importing the necessary classes from the "driver" package.
-
+import com.commandline.*;
 public class Main {
-	public static void main(String args[]) {
-		while (true) { // Looping until the user chooses to exit.
 
-			// Creating an instance of the InputHandler class to get user input.
-			InputHandler input = new InputHandler();
+	public static void main(String args[]) {
+		
+		CommandLineInput command = new CommandLineInput();
+		command.commandInput(args);
+		System.out.println();
+		
+		// Creating an instance of the InputHandler class to get user input.
+		InputHandler input = new InputHandler();
+		
+		// Creating an instance of the Output class to display the output.
+		Output output = new Output();
+
+		while (true) { // Looping until the user chooses to exit.
 
 			// Getting car details from the user using the getCarDetailsFromUser method.
 			Car car = input.getCarDetailsFromUser();
-
-			// Creating an instance of the Output class to display the output.
-			Output output = new Output();
 
 			// Printing an empty line for formatting purposes.
 			System.out.println();
