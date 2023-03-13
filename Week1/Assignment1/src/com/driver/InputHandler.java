@@ -14,6 +14,7 @@ public class InputHandler {
         String insuranceType = null;
 
         try {
+        	System.out.println("Enter Deatils of The Car");
             System.out.print("Enter Car Model: ");
             model = scanner.nextLine();
 

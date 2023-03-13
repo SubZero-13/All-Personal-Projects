@@ -14,7 +14,7 @@ public class Output {
 			double insurancePaid = carinsurance.calculateInsurance(price, type, insuranceType);
 			System.out.println("Car Model: " + model);
 			System.out.println("Car Type: " + type);
-			System.out.println("Car Type: " + price);
+			System.out.println("Car Price: " + price);
 			System.out.println("Insurance Type: " + insuranceType);
 			System.out.println("Total Insurance to be Paid: " + insurancePaid);
 		} catch (Exception e) {
