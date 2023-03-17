@@ -34,12 +34,17 @@ public class InputHandler {
 
 			System.out.print("Enter Car Type (Hatchback/Sedan/SUV): ");
 			type = scanner.nextLine();
-
+			
 			System.out.print("Enter Car Cost Price: ");
+			while (!scanner.hasNextDouble()) {
+				System.out.println("Invalid Input type Enter the double-type number:");
+				System.out.print("Enter Car Cost Price Again: ");
+				scanner.next();
+			}
 			price = scanner.nextDouble();
-
-			scanner.nextLine();
 			System.out.print("Enter Insurance Type (Basic/Premium): ");
+			scanner.nextLine();
+			
 			insuranceType = scanner.nextLine();
 			return new Car(model, type, price, insuranceType);
 		} catch (Exception e) {
@@ -47,6 +52,7 @@ public class InputHandler {
 //            scanner.nextLine();
 			return null;
 		}
+
 	}
 
 	/**
