@@ -5,24 +5,24 @@ import java.util.Collection;
 import java.util.Comparator;
 import java.util.Iterator;
 import com.nagarro.iterator.NodeIterator;
-
+import com.nagarro.comparable.Compare;
 import com.nagarro.exceptions.*;
 // Package Import Ends Here
 
 public class MyLinkedList<E> implements Iterable<E> {
 	private Node<E> head;
 	private int size;
+	Compare comp;
 	Comparator comparator;
 
 	public MyLinkedList() {
-		head = null;
-		comparator = null;
-		size = 0;
+		this(null);
 	}
 
 	public MyLinkedList(Comparator comparator) {
 		head = null;
 		this.comparator = comparator;
+		comp = new Compare(comparator);
 		size = 0;
 	}
 
@@ -203,7 +203,7 @@ public class MyLinkedList<E> implements Iterable<E> {
 		Node<E> dummyHead = new Node<E>(null);
 		Node<E> current = dummyHead;
 		while (left != null && right != null) {
-			if (compare(left.val, right.val) <= 0) {
+			if (comp.compare(left.val, right.val) <= 0) {
 				current.next = left;
 				left = left.next;
 			} else {
@@ -272,14 +272,6 @@ public class MyLinkedList<E> implements Iterable<E> {
 	@Override
 	public Iterator<E> iterator() {
 		return new NodeIterator(head);
-	}
-
-	public int compare(E element1, E element2) {
-		if (comparator == null) {
-			return (((Comparable<E>) element1).compareTo(element2));
-		} else {
-			return comparator.compare(element1, element2);
-		}
 	}
 
 }
