@@ -4,6 +4,7 @@ import java.util.*;
 
 public class Main {
 	public static void main(String[] args) {
+
 		System.out.println("Creating A HashMap");
 		MyHashTable<String, Integer> map = new MyHashTable<>();
 		System.out.println("Putting Key(Aman) and Value(18) in Map");

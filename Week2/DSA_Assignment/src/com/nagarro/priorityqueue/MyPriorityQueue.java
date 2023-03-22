@@ -22,13 +22,19 @@ import com.nagarro.iterator.PriorityQueueIterator;
 public class MyPriorityQueue<E> implements Iterable<E> {
 	private ArrayList<E> dataList;
 	private Comparator<E> comparator;
-	private Compare comp; // Declaring Compare object for Comparison
+	private Compare comp;
+	private boolean isMinPq;
 
 	public MyPriorityQueue() {
 		this(null);
 	}
 
 	public MyPriorityQueue(Comparator comparator) {
+		if (comparator == null) {
+			isMinPq = true;
+		} else {
+			isMinPq = false;
+		}
 		dataList = new ArrayList<>();
 		this.comparator = comparator;
 		comp = new Compare(this.comparator);
@@ -129,9 +135,21 @@ public class MyPriorityQueue<E> implements Iterable<E> {
 	}
 
 	public void reverse() throws UnderFlowException {
-		if (dataList.size() == 0)
+		if (dataList.size() == 0) {
 			throw new UnderFlowException("Priority Queue is Empty");
-		Collections.reverse(dataList);
+		}
+		if (isMinPq) {
+			comparator = Collections.reverseOrder(comparator);
+			comp = new Compare(comparator);
+			isMinPq = false;
+		} else {
+			comparator = Collections.reverseOrder(comparator);
+			comp = new Compare(comparator);
+			isMinPq = true;
+		}
+		for (int i = size() / 2 - 1; i >= 0; i--) {
+			downHeapify(i);
+		}
 	}
 
 	public void traverse() {

@@ -1,5 +1,6 @@
 package com.nagarro.priorityqueue;
 
+import java.util.Collections;
 import java.util.Iterator;
 
 import com.nagarro.queue.MyQueue;
@@ -7,7 +8,7 @@ import com.nagarro.queue.MyQueue;
 public class Main {
 	public static void main(String[] args) {
 		System.out.println("Initializing A Integer Type Queue");
-		MyPriorityQueue<Integer> queue = new MyPriorityQueue<>();
+		MyPriorityQueue<Integer> queue = new MyPriorityQueue<>(Collections.reverseOrder());
 
 		try {
 			System.out.println("Enqueue 1 into the queue");
@@ -104,6 +105,16 @@ public class Main {
 		try {
 			System.out.println("Enqueue 15 into the queue");
 			queue.enQueue(15);
+			queue.traverse();
+			System.out.println();
+		} catch (Exception err) {
+			System.out.println(err.getMessage());
+		}
+
+		try {
+			System.out.println("Dequeue from queue");
+			System.out.println("Dequeued Element: " + queue.deQueue());
+			System.out.println();
 			queue.traverse();
 			System.out.println();
 		} catch (Exception err) {

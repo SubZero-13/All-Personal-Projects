@@ -32,4 +32,5 @@ public class Compare<E> implements Comparator<E> {
 			return comp.compare(element1, element2);
 		}
 	}
+
 }

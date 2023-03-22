@@ -40,8 +40,4 @@ public class HashTableIterator<K, V> implements Iterator<K> {
 		}
 		return currentNode.getKey();
 	}
-
-	public void remove() {
-		throw new UnsupportedOperationException();
-	}
 }
