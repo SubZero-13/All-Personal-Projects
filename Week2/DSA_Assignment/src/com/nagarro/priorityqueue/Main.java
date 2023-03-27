@@ -15,8 +15,8 @@ public class Main {
 			queue.enQueue(1);
 			queue.traverse();
 			System.out.println();
-		} catch (Exception err) {
-			System.out.println(err.getMessage());
+		} catch (Exception exception) {
+			System.out.println(exception.getMessage());
 		}
 
 		try {
@@ -24,8 +24,8 @@ public class Main {
 			queue.enQueue(5);
 			queue.traverse();
 			System.out.println();
-		} catch (Exception err) {
-			System.out.println(err.getMessage());
+		} catch (Exception exception) {
+			System.out.println(exception.getMessage());
 		}
 
 		try {
@@ -33,8 +33,8 @@ public class Main {
 			queue.enQueue(8);
 			queue.traverse();
 			System.out.println();
-		} catch (Exception err) {
-			System.out.println(err.getMessage());
+		} catch (Exception exception) {
+			System.out.println(exception.getMessage());
 		}
 
 		try {
@@ -42,8 +42,8 @@ public class Main {
 			queue.enQueue(5);
 			queue.traverse();
 			System.out.println();
-		} catch (Exception err) {
-			System.out.println(err.getMessage());
+		} catch (Exception exception) {
+			System.out.println(exception.getMessage());
 		}
 
 		try {
@@ -51,8 +51,8 @@ public class Main {
 			queue.enQueue(10);
 			queue.traverse();
 			System.out.println();
-		} catch (Exception err) {
-			System.out.println(err.getMessage());
+		} catch (Exception exception) {
+			System.out.println(exception.getMessage());
 		}
 
 		try {
@@ -61,8 +61,8 @@ public class Main {
 			System.out.println();
 			queue.traverse();
 			System.out.println();
-		} catch (Exception err) {
-			System.out.println(err.getMessage());
+		} catch (Exception exception) {
+			System.out.println(exception.getMessage());
 		}
 
 		try {
@@ -70,8 +70,8 @@ public class Main {
 			System.out.println();
 			queue.traverse();
 			System.out.println();
-		} catch (Exception err) {
-			System.out.println(err.getMessage());
+		} catch (Exception exception) {
+			System.out.println(exception.getMessage());
 		}
 
 		try {
@@ -79,8 +79,8 @@ public class Main {
 			System.out.println(queue.isEmpty());
 			queue.traverse();
 			System.out.println();
-		} catch (Exception err) {
-			System.out.println(err.getMessage());
+		} catch (Exception exception) {
+			System.out.println(exception.getMessage());
 		}
 
 		try {
@@ -89,8 +89,8 @@ public class Main {
 			System.out.println();
 			queue.traverse();
 			System.out.println();
-		} catch (Exception err) {
-			System.out.println(err.getMessage());
+		} catch (Exception exception) {
+			System.out.println(exception.getMessage());
 		}
 
 		try {
@@ -98,8 +98,8 @@ public class Main {
 			queue.reverse();
 			queue.traverse();
 			System.out.println();
-		} catch (Exception err) {
-			System.out.println(err.getMessage());
+		} catch (Exception exception) {
+			System.out.println(exception.getMessage());
 		}
 
 		try {
@@ -107,8 +107,8 @@ public class Main {
 			queue.enQueue(15);
 			queue.traverse();
 			System.out.println();
-		} catch (Exception err) {
-			System.out.println(err.getMessage());
+		} catch (Exception exception) {
+			System.out.println(exception.getMessage());
 		}
 
 		try {
@@ -117,8 +117,8 @@ public class Main {
 			System.out.println();
 			queue.traverse();
 			System.out.println();
-		} catch (Exception err) {
-			System.out.println(err.getMessage());
+		} catch (Exception exception) {
+			System.out.println(exception.getMessage());
 		}
 
 		try {
@@ -126,8 +126,8 @@ public class Main {
 			System.out.println(queue.contains(13));
 			queue.traverse();
 			System.out.println();
-		} catch (Exception err) {
-			System.out.println(err.getMessage());
+		} catch (Exception exception) {
+			System.out.println(exception.getMessage());
 		}
 
 		try {
@@ -135,8 +135,8 @@ public class Main {
 			System.out.println(queue.size());
 			queue.traverse();
 			System.out.println();
-		} catch (Exception err) {
-			System.out.println(err.getMessage());
+		} catch (Exception exception) {
+			System.out.println(exception.getMessage());
 		}
 
 		try {
@@ -144,8 +144,8 @@ public class Main {
 			System.out.println(queue.center());
 			queue.traverse();
 			System.out.println();
-		} catch (Exception err) {
-			System.out.println(err.getMessage());
+		} catch (Exception exception) {
+			System.out.println(exception.getMessage());
 		}
 
 		try {
@@ -155,18 +155,19 @@ public class Main {
 				System.out.print(iterate.next() + " ");
 			}
 			System.out.println();
-		} catch (Exception err) {
-			System.out.println(err.getMessage());
+		} catch (Exception exception) {
+			System.out.println(exception.getMessage());
 		}
 
 		try {
-			System.out.println("Iterating through the queue using For Each Loop");
-			for (int val : queue) {
-				System.out.print(val + " ");
+			System.out.println("Iterating through the queue");
+			Iterator iterator = queue.iterator();
+			while (iterator.hasNext()) {
+				System.out.print(iterator.next() + " ");
 			}
 			System.out.println();
-		} catch (Exception err) {
-			System.out.println(err.getMessage());
+		} catch (Exception exception) {
+			System.out.println(exception.getMessage());
 		}
 
 		try {
@@ -174,8 +175,8 @@ public class Main {
 			System.out.println();
 			queue.traverse();
 			System.out.println();
-		} catch (Exception err) {
-			System.out.println(err.getMessage());
+		} catch (Exception exception) {
+			System.out.println(exception.getMessage());
 		}
 	}
 }

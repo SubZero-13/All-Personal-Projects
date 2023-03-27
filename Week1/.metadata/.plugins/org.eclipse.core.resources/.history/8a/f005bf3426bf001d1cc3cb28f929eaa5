@@ -1,7 +1,0 @@
-package com.cardetails;
-
-public class CarInsurance {
-	public double insuranceCalc(double price) {
-		return 0.1d;
-	}
-}

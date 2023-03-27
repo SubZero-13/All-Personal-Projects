@@ -1,5 +1,0 @@
-package com.cardetails;
-
-public interface Insurance {
-	double calculateInsurance(double carCostPrice, String carType, String insuranceType);
-}

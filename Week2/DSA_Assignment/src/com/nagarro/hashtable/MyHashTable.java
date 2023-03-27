@@ -105,15 +105,6 @@ public class MyHashTable<K, V> implements Iterable<K> {
 		throw new KeyNotFoundException("Key is not Present");
 	}
 
-	/**
-	 * 
-	 * Returns true if this hash table contains a mapping for the specified key.
-	 * 
-	 * @param key The key
-	 * @return true if the hash table contains a mapping for the key, false
-	 *         otherwise
-	 */
-
 	public boolean containsKey(K key) {
 		if (key == null) {
 			return false;
@@ -145,12 +136,6 @@ public class MyHashTable<K, V> implements Iterable<K> {
 	 * @throws NullKeyException
 	 */
 
-	/**
-	 * The remove(K key) method is used to remove a key-value pair from the hash
-	 * table based on the key provided.
-	 * 
-	 * @throws NullKeyException
-	 */
 	private void resize() throws NullKeyException {
 		int newCapacity = table.length * 2;
 		List<HashNode<K, V>> nodes = new ArrayList<>();
