@@ -14,10 +14,9 @@
     margin-top: 8%;
     top: 0;
   }
-}
-
-body {
-  overflow-x: hidden;
+  body {
+    overflow-x: hidden;
+  }
 }
 
 .navbar {
