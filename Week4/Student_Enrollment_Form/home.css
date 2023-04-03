@@ -1,0 +1,126 @@
+@media screen and (min-width:768px) {
+  .col-sm-6 {
+    align-items: center;
+  }
+}
+
+@media screen and (min-width:768px) {
+  .vl {
+    border-left: 4px solid rgb(30, 219, 147);
+    height: 400px;
+    position: absolute;
+    left: 50%;
+    margin-left: -3px;
+    margin-top: 8%;
+    top: 0;
+  }
+}
+
+body {
+  overflow-x: hidden;
+}
+
+.navbar {
+  background-color: rgb(30, 219, 147);
+  border: 1px solid black;
+}
+
+h3 {
+  text-align: center; 
+  font-size: 20px;
+}
+.checkbox {
+  margin-left: 15px;
+}
+
+.table {
+  width: 80%;
+  margin-left: 8%;
+  margin-right: 40%;
+  border: 1px solid rgb(123, 173, 6);
+  font-size: 12px;
+  padding: 10px;
+}
+
+th {
+  color: white;
+  background-color: rgb(160, 216, 29);
+  text-align: left;
+  border: 1px solid rgb(123, 173, 6);
+  position: sticky;
+  top: 0;
+  z-index: 1;
+}
+
+td {
+  text-align: left;
+  border: 1px solid rgb(123, 173, 6);
+}
+
+.table-container {
+  padding-left: 5%;
+  padding-right: 5%;
+  max-height: 400px;
+  overflow-x: hidden;
+  overflow-y: scroll;
+}
+/* Hide scrollbar for Chrome, Safari and Opera */
+.table-container::-webkit-scrollbar {
+  display: none;
+}
+/* Hide scrollbar for IE, Edge and Firefox */
+.table-container {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}
+
+img {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 4px;
+  height: 100px;
+  width: 95px;
+}
+
+tr:nth-child(odd) {
+  background-color: #D3D3D3;
+}
+
+.form-group {
+  padding-left: 15%;
+  padding-right: 15%;
+}
+
+.Buttons {
+  padding-left: 15%;
+  padding-right: 15%;
+
+}
+
+a {
+  text-decoration: underline;
+}
+
+.footer {
+  padding: 0.5%;
+  background-color: rgb(30, 219, 147);
+  color: white;
+  border: 1px solid black;
+  font-size: 13px;
+  text-align: center;
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+}
+
+.show {
+  opacity: 1;
+  transition: opacity 1000ms;
+}
+
+.hide {
+  opacity: 0;
+  transition: opacity 1000ms;
+}

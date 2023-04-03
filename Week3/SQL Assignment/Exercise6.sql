@@ -28,4 +28,4 @@ GO
 
 UPDATE Production.Product
 SET ListPrice = 1800
-WHERE ProductID = 680
+WHERE ProductID = 680;
