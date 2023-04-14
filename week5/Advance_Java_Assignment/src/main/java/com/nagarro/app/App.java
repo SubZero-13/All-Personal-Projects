@@ -9,10 +9,10 @@ import com.nagarro.tshirtdetails.*;
 
 public class App {
 	public static void main(String[] args) {
+		Thread csvWatcherThread = new Thread(new CSVFolderWatcher());
+		csvWatcherThread.start();
 		while (true) {
 			try {
-				Thread csvWatcherThread = new Thread(new CSVFolderWatcher());
-				csvWatcherThread.start();
 				Input input = new Input();
 				TshirtInput tshirtIp = input.getInput();
 				Search search = new Search();
