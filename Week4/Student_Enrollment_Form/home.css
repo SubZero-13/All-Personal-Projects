@@ -116,10 +116,10 @@ a {
 
 .show {
   opacity: 1;
-  transition: opacity 1000ms;
+  transition: opacity 2000ms;
 }
 
 .hide {
   opacity: 0;
-  transition: opacity 1000ms;
+  transition: opacity 2000ms;
 }
