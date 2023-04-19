@@ -99,6 +99,23 @@ public class Tshirt {
 	}
 
 	@Override
+	public int hashCode() {
+		return Objects.hash(id, name, color, gender, size, avalibilty, price, rating);
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null || getClass() != obj.getClass())
+			return false;
+		Tshirt tshirt = (Tshirt) obj;
+		return Objects.equals(id, tshirt.id) && Objects.equals(name, tshirt.name) && color == tshirt.color
+				&& gender == tshirt.gender && size == tshirt.size && Objects.equals(avalibilty, tshirt.avalibilty)
+				&& Double.compare(tshirt.price, price) == 0 && Double.compare(tshirt.rating, rating) == 0;
+	}
+
+	@Override
 	public String toString() {
 		String tshirtString = "Id:\t" + id + "\n" + "Name:\t" + name + "\n" + "Color:\t" + color.toString() + "\n"
 				+ "Gender:\t" + gender.toString() + "\n" + "Size:\t" + size.toString() + "\n" + "Price\t" + price + "\n"
