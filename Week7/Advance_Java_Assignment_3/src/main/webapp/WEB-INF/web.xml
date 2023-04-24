@@ -1,0 +1,68 @@
+<!DOCTYPE web-app PUBLIC
+ "-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN"
+ "http://java.sun.com/dtd/web-app_2_3.dtd" >
+
+<web-app>
+	<display-name>Archetype Created Web Application</display-name>
+	<servlet>
+		<servlet-name>LoginServlet</servlet-name>
+		<display-name>LoginServlet</display-name>
+		<description></description>
+		<servlet-class>com.nagarro.servlets.LoginServlet</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>LogoutServlet</servlet-name>
+		<display-name>LogoutServlet</display-name>
+		<description></description>
+		<servlet-class>com.nagarro.servlets.LogoutServlet</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>ForgetServlet</servlet-name>
+		<display-name>ForgetServlet</display-name>
+		<description></description>
+		<servlet-class>com.nagarro.servlets.ForgetServlet</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>EditProductServlet</servlet-name>
+		<display-name>EditProductServlet</display-name>
+		<description></description>
+		<servlet-class>com.nagarro.servlets.products.EditProductServlet</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>SaveProductServlet</servlet-name>
+		<display-name>SaveProductServlet</display-name>
+		<description></description>
+		<servlet-class>com.nagarro.servlets.products.SaveProductServlet</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>GetImageServlet</servlet-name>
+		<display-name>GetImageServlet</display-name>
+		<description></description>
+		<servlet-class>com.nagarro.servlets.products.GetImageServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>LoginServlet</servlet-name>
+		<url-pattern>/LoginServlet</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>LogoutServlet</servlet-name>
+		<url-pattern>/LogoutServlet</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>ForgetServlet</servlet-name>
+		<url-pattern>/ForgetServlet</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>EditProductServlet</servlet-name>
+		<url-pattern>/EditProductServlet</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>SaveProductServlet</servlet-name>
+		<url-pattern>/SaveProductServlet</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>GetImageServlet</servlet-name>
+		<url-pattern>/GetImageServlet</url-pattern>
+	</servlet-mapping>
+
+</web-app>
