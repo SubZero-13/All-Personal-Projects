@@ -37,6 +37,7 @@ public class SearchDao {
 		Comparator<Tshirt> bothcompare = new BothComparator();
 
 		Query<Tshirt> query = session.createQuery("FROM Tshirt", Tshirt.class);
+
 		ArrayList<Tshirt> tshirtList = (ArrayList<Tshirt>) query.getResultList();
 
 		for (Tshirt tshirt : tshirtList) {
