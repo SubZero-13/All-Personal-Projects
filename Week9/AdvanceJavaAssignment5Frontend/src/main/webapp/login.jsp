@@ -29,10 +29,13 @@ body {
 			<div class="input-container">
 				<i class="fa fa-user icon"></i> <input type="text"
 					class="input-field" name="userid" placeholder="User Id" autofocus />
+				<span style="color: #d62727; font-size: 16px;">${idSizeError}</span>
+				<span style="color: #d62727; font-size: 16px;">${loginError}</span>
 			</div>
 			<div class="input-container">
 				<i class="fa fa-key icon"></i> <input type="password"
-					class="input-field" name="password" placeholder="Password" />
+					class="input-field" name="password" placeholder="Password" /> <span
+					style="color: #d62727; font-size: 16px;">${passSizeError}</span>
 			</div>
 			<button type="submit" class="btn">
 				<i class="fa fa-spinner fa-spin"></i> <span class="state">Log

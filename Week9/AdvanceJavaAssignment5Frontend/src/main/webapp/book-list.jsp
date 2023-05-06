@@ -99,7 +99,26 @@ button {
 	box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.3);
 }
 
-.navbar-left .button, .navbar-right .button {
+.navbar-center {
+	width: 300px;
+	margin: 0 auto;
+	margin-right: 230px;
+}
+
+.navbar-left .button {
+	background-color: #007bff;
+	color: #fff;
+	border: none;
+	padding: 5px 10px;
+	margin: 20px;
+	transition: all 0.3s ease-in-out;
+	text-align: center;
+	float: right;
+	transition: all 0.3s ease-in-out;
+	transition: all 0.3s ease-in-out;
+}
+
+.navbar-right .button {
 	background-color: #007bff;
 	color: #fff;
 	border: none;
@@ -110,6 +129,7 @@ button {
 }
 
 .navbar-left .button:hover, .navbar-right .button:hover {
+	text-decoration: none;
 	background-color: #0069d9;
 	cursor: pointer;
 	transform: scale(1.05);
@@ -119,10 +139,6 @@ button {
 </head>
 <body>
 	<nav class="navbar">
-		<div class="navbar-left">
-			<a href="${pageContext.request.contextPath}/book/formForNewBook"
-				class="button">Add Book</a>
-		</div>
 		<div class="navbar-center">
 			<h2>Book Listing</h2>
 		</div>
@@ -135,6 +151,10 @@ button {
 		<div class="card-body"></div>
 		<div id="container">
 			<div id="content">
+				<div class="navbar-left">
+					<a href="${pageContext.request.contextPath}/book/formForNewBook"
+						class="button">Add Book</a>
+				</div>
 				<table class="table table-striped table-bordered table-hover">
 					<thead class="thead-dark">
 						<tr>

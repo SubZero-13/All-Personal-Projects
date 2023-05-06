@@ -38,11 +38,11 @@ h1 {
 
 	<h1>Book Registration Form</h1>
 
-	<form:form action="/book/register" modelAttribute="book">
+	<form:form action="/book/update" modelAttribute="book">
 
 		<div class="form-group">
 			<label for="id">Book ID:</label> <input type="text" id="id" name="id"
-				class="form-control" />
+				value="${book.id}" class="form-control" readonly />
 		</div>
 
 		<div class="form-group">

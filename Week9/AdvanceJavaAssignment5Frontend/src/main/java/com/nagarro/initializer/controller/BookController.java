@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.client.RestTemplate;
+import org.springframework.web.servlet.ModelAndView;
 
 import com.nagarro.initializer.entities.Author;
 import com.nagarro.initializer.entities.Book;
@@ -26,56 +27,59 @@ public class BookController {
 	@Autowired
 	private BookService bookService;
 
-	private RestTemplate restTemplate;
-	private String url = "http://localhost:8085/";
-
-	public BookController(RestTemplate restTemplate) {
-		this.restTemplate = restTemplate;
-	}
-
-	/*
-	 * @RequestMapping("") public String book(Model model) { List<Book> list =
-	 * bookService.getAllBooks(); model.addAttribute("books", list); return
-	 * "book-list.jsp"; }
-	 */
-
 	@PostMapping("/register")
 	public String registerBook(@ModelAttribute("book") Book book, HttpServletRequest req, Model model) {
 
-		System.out.println(book);
+		Book existingBook = bookService.getBookById(book.getId());
 
-		ResponseEntity<Author> response = restTemplate.getForEntity(url + "author/" + book.getAuthor().getId(),
-				Author.class);
+		if (existingBook != null) {
+			model.addAttribute("errorMessage", "Book is already present in the Library");
+			return req.getContextPath() + "/AddBook.jsp";
+		}
 
-		System.out.println(book.getId());
+		Author auth = bookService.getAuthor(book.getAuthor().getId());
 
-		int bookId = Integer.parseInt(req.getParameter("id"));
-		book.setId(bookId);
-		book.setAuthor(response.getBody());
+		book.setId(book.getId());
+		book.setAuthor(auth);
 		book.setDate("" + java.time.LocalDate.now());
 
-		System.out.println(">> " + book);
+		bookService.addBook(book);
 
-		if (bookId == 0)
-			restTemplate.postForEntity(url + "book", book, Book.class);
-		else
-			restTemplate.postForEntity(url + "updateBook", book, Book.class);
+		List<Book> list = bookService.getAllBooks();
+
+		model.addAttribute("books", list);
 		String path = req.getContextPath();
 
-		return path + "/book";
+		return path + "/book-list.jsp";
 
+	}
+
+	@RequestMapping("/update")
+	public String updateBooks(@ModelAttribute("book") Book book, Model model, HttpServletRequest req) {
+
+		Author auth = bookService.getAuthor(book.getAuthor().getId());
+		book.setAuthor(auth);
+
+		// Set the book's date to today's date
+		book.setDate("" + java.time.LocalDate.now());
+
+		// Update the book
+		bookService.updateBook(book);
+
+		List<Book> list = bookService.getAllBooks();
+
+		model.addAttribute("books", list);
+
+		String path = req.getContextPath();
+		return path + "/book-list.jsp";
 	}
 
 	@RequestMapping("/showFormForUpdate/{id}")
 	public String showForUpdate(HttpServletRequest req, @PathVariable int id, Model model) {
 
-		ResponseEntity<Book> bookResponse = restTemplate.getForEntity(url + "book/" + id, Book.class);
+		Book book = bookService.getBookById(id);
 
-		Book book = bookResponse.getBody();
-
-		ResponseEntity<Author[]> response = restTemplate.getForEntity(url + "author", Author[].class);
-
-		Author[] author = response.getBody();
+		Author[] author = bookService.getAllAuthor();
 
 		HashMap<Integer, String> hm = new HashMap<Integer, String>();
 
@@ -90,15 +94,13 @@ public class BookController {
 
 		String path = req.getContextPath();
 
-		return path + "/book-form.jsp";
+		return path + "/EditBook.jsp";
 	}
 
-	@PostMapping("/formForNewBook")
+	@RequestMapping("/formForNewBook")
 	public String bookForm(HttpServletRequest req, Model model) {
 
-		ResponseEntity<Author[]> response = restTemplate.getForEntity(url + "author", Author[].class);
-
-		Author[] author = response.getBody();
+		Author[] author = bookService.getAllAuthor();
 
 		HashMap<Integer, String> hm = new HashMap<Integer, String>();
 
@@ -111,7 +113,7 @@ public class BookController {
 
 		String path = req.getContextPath();
 
-		return path + "/EditBook.jsp";
+		return path + "/AddBook.jsp";
 
 	}
 

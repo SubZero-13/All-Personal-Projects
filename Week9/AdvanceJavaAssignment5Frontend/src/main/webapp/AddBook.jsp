@@ -42,7 +42,8 @@ h1 {
 
 		<div class="form-group">
 			<label for="id">Book ID:</label> <input type="text" id="id" name="id"
-				value="${book.id}" class="form-control" readonly />
+				class="form-control" /> <span
+				style="color: #d62727; font-size: 16px;">${errorMessage}</span>
 		</div>
 
 		<div class="form-group">

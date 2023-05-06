@@ -1,4 +1,4 @@
-	package com.nagarro.initializer.entities;
+package com.nagarro.initializer.entities;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
@@ -12,28 +12,24 @@ import javax.persistence.Table;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 @Entity
-@Table(name="book")
+@Table(name = "book")
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class Book {
 
 	// define fields
-	
-	@Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	private int id;
-	
-	private String name;
-	
-	private String date;	
 
-	@ManyToOne(cascade = {CascadeType.DETACH, 
-					CascadeType.MERGE, 
-					CascadeType.REFRESH} , 
-			optional = false)
-	@JoinColumn(name="author_id")
+	@Id
+	private int id;
+
+	private String name;
+
+	private String date;
+
+	@ManyToOne(cascade = { CascadeType.DETACH, CascadeType.MERGE, CascadeType.REFRESH }, optional = false)
+	@JoinColumn(name = "author_id")
 	private Author author;
 	// define constructors
-	
+
 	public Book() {
 		// TODO Auto-generated constructor stub
 	}
@@ -83,14 +79,3 @@ public class Book {
 	}
 
 }
-
-
-
-
-
-
-
-
-
-
-

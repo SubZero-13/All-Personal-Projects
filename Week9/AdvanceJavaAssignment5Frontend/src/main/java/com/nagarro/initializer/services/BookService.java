@@ -7,6 +7,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
+import com.nagarro.initializer.entities.Author;
 import com.nagarro.initializer.entities.Book;
 
 @Service
@@ -44,4 +45,28 @@ public class BookService {
 		}
 		return list;
 	}
+
+	public Book getBookById(int bookid) {
+		Book existingBook = restTemplate.getForObject(url + "book/" + bookid, Book.class);
+		return existingBook;
+	}
+
+	public Author getAuthor(int authorId) {
+		ResponseEntity<Author> response = restTemplate.getForEntity(url + "author/" + authorId, Author.class);
+		return response.getBody();
+	}
+
+	public void addBook(Book book) {
+		restTemplate.postForEntity(url + "book", book, Book.class);
+	}
+
+	public void updateBook(Book book) {
+		restTemplate.put(url + "updateBook", book);
+	}
+
+	public Author[] getAllAuthor() {
+		ResponseEntity<Author[]> response = restTemplate.getForEntity(url + "author", Author[].class);
+		return response.getBody();
+	}
+
 }

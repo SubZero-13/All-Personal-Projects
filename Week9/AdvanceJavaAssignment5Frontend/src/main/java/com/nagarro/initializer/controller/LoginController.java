@@ -30,11 +30,21 @@ public class LoginController {
 
 	@RequestMapping("/login")
 	public ModelAndView login(HttpServletRequest req) {
-
+		ModelAndView mv = new ModelAndView();
 		int id = Integer.parseInt(req.getParameter("userid"));
 		String password = req.getParameter("password");
 
-		ModelAndView mv = new ModelAndView();
+		if (Integer.toString(id).length() < 5 || Integer.toString(id).length() > 50) {
+			mv.addObject("idSizeError", "User id should be Min 5 character and Max 50 Character Long");
+			mv.setViewName("login.jsp");
+			return mv;
+		}
+
+		if (password.length() < 5 || password.length() > 50) {
+			mv.addObject("passSizeError", "Password should be Min 5 character and Max 50 Character Long");
+			mv.setViewName("login.jsp");
+			return mv;
+		}
 
 		if (userService.checkUser(id, password)) {
 			mv.addObject("userid", id);
@@ -42,6 +52,7 @@ public class LoginController {
 			mv.addObject("books", list);
 			mv.setViewName("book-list.jsp");
 		} else {
+			mv.addObject("loginError", "Enter Correct Id and Password");
 			mv.setViewName("login.jsp");
 		}
 		return mv;
