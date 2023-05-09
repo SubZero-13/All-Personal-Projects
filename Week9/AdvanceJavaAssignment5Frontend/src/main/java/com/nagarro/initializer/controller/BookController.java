@@ -31,6 +31,7 @@ public class BookController {
 	public String registerBook(@ModelAttribute("book") Book book, HttpServletRequest req, Model model) {
 
 		Book existingBook = bookService.getBookById(book.getId());
+		int id = Integer.parseInt(req.getParameter("userid"));
 
 		if (existingBook != null) {
 			model.addAttribute("errorMessage", "Book is already present in the Library");
@@ -48,6 +49,7 @@ public class BookController {
 		List<Book> list = bookService.getAllBooks();
 
 		model.addAttribute("books", list);
+		model.addAttribute("userid", id);
 		String path = req.getContextPath();
 
 		return path + "/book-list.jsp";
@@ -56,6 +58,8 @@ public class BookController {
 
 	@RequestMapping("/update")
 	public String updateBooks(@ModelAttribute("book") Book book, Model model, HttpServletRequest req) {
+
+		int userid = Integer.parseInt(req.getParameter("userid"));
 
 		Author auth = bookService.getAuthor(book.getAuthor().getId());
 		book.setAuthor(auth);
@@ -69,6 +73,7 @@ public class BookController {
 		List<Book> list = bookService.getAllBooks();
 
 		model.addAttribute("books", list);
+		model.addAttribute("userid", userid);
 
 		String path = req.getContextPath();
 		return path + "/book-list.jsp";
@@ -76,6 +81,8 @@ public class BookController {
 
 	@RequestMapping("/showFormForUpdate/{id}")
 	public String showForUpdate(HttpServletRequest req, @PathVariable int id, Model model) {
+
+		int userid = Integer.parseInt(req.getParameter("userid"));
 
 		Book book = bookService.getBookById(id);
 
@@ -92,6 +99,8 @@ public class BookController {
 
 		model.addAttribute("id", id);
 
+		model.addAttribute("userid", userid);
+
 		String path = req.getContextPath();
 
 		return path + "/EditBook.jsp";
@@ -102,6 +111,8 @@ public class BookController {
 
 		Author[] author = bookService.getAllAuthor();
 
+		int id = Integer.parseInt(req.getParameter("userid"));
+
 		HashMap<Integer, String> hm = new HashMap<Integer, String>();
 
 		for (Author auth : author)
@@ -109,7 +120,7 @@ public class BookController {
 
 		model.addAttribute("authorMap", hm);
 		model.addAttribute("book", new Book());
-		model.addAttribute("id", 0);
+		model.addAttribute("userid", id);
 
 		String path = req.getContextPath();
 
@@ -120,9 +131,12 @@ public class BookController {
 	@RequestMapping("/delete/{id}")
 	public String deleteBook(HttpServletRequest req, Model model, @PathVariable int id) {
 
+		int userid = Integer.parseInt(req.getParameter("userid"));
+
 		List<Book> list = bookService.deleteBook(id);
 
 		model.addAttribute("books", list);
+		model.addAttribute("userid", userid);
 
 		String path = req.getContextPath();
 

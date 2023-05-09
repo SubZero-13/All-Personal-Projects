@@ -11,8 +11,8 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.nagarro.initializer.dao.AuthorService;
 import com.nagarro.initializer.entities.Author;
+import com.nagarro.initializer.service.AuthorService;
 
 @RestController
 public class AuthorController {

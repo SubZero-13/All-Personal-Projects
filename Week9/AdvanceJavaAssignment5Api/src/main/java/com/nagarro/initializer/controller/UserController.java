@@ -11,8 +11,8 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.nagarro.initializer.dao.UserService;
 import com.nagarro.initializer.entities.User;
+import com.nagarro.initializer.service.UserService;
 
 @RestController
 public class UserController {

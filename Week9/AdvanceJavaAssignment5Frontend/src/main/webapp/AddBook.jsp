@@ -38,7 +38,8 @@ h1 {
 
 	<h1>Book Registration Form</h1>
 
-	<form:form action="/book/register" modelAttribute="book">
+	<form:form action="/book/register?userid=${userid}"
+		modelAttribute="book">
 
 		<div class="form-group">
 			<label for="id">Book ID:</label> <input type="text" id="id" name="id"

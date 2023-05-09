@@ -1,7 +1,7 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@page import="com.nagarro.initializer.entities.*"%>
-<%@page import="java.time.LocalDate, java.time.format.DateTimeFormatter"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 
 <%@page import="java.util.List"%>
 <html>
@@ -10,10 +10,6 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet"
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-<link type="text/css" rel="stylesheet"
-	href="${pageContext.request.contextPath}/css/style1.css" />
-<link type="text/css" rel="stylesheet"
-	href="${pageContext.request.contextPath}/css/add-customer-style.css">
 <style>
 /* Set body background color to a light shade of gray and text color to black */
 body {
@@ -152,7 +148,8 @@ button {
 		<div id="container">
 			<div id="content">
 				<div class="navbar-left">
-					<a href="${pageContext.request.contextPath}/book/formForNewBook"
+					<a
+						href="${pageContext.request.contextPath}/book/formForNewBook?userid=${userid}"
 						class="button">Add Book</a>
 				</div>
 				<table class="table table-striped table-bordered table-hover">
@@ -175,12 +172,12 @@ button {
 								<td>${book.author.name}</td>
 								<td>${book.date}</td>
 								<td><a
-									href="${pageContext.request.contextPath}/book/delete/${book.id}"
+									href="${pageContext.request.contextPath}/book/delete/${book.id}?userid=${userid}"
 									class="delete-btn"
 									onclick="if (!(confirm('Are you sure you want to delete this customer?'))) return false">Delete</a>
 
 									<a class="edit-btn"
-									href="${pageContext.request.contextPath}/book/showFormForUpdate/${book.id}">Edit</a>
+									href="${pageContext.request.contextPath}/book/showFormForUpdate/${book.id}?userid=${userid}">Edit</a>
 								</td>
 							</tr>
 						</c:forEach>
