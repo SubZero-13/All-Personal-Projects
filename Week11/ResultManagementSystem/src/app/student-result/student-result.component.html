@@ -1,0 +1,66 @@
+<!-- <div class="container mt-5">
+    <div class="row" *ngIf="data">
+      <h1 class="roll-number">Roll Number: &nbsp; &nbsp; <span class="tab">{{data?.rollNumber}}</span></h1>
+    </div>
+    <div *ngIf="data">
+      <h1 class="student-name">Name: &nbsp; &nbsp; <span class="tab2">{{data?.studentName}}</span> </h1>
+    </div>
+    <div *ngIf="data">
+      <h1 class="date-of-birth">Date Of Birth: &nbsp; &nbsp; <span class="tab3"> {{data?.dateOfBirth}}</span> </h1>
+    </div>
+    <div *ngIf="data">
+      <h1 class="score">Score: &nbsp; &nbsp; <span class="tab4"> {{data?.score}} </span></h1>
+    </div>
+    <button mat-raised-button color="primary" (click)="goBack()" class="back-button">Back</button>
+  </div> -->
+
+<!-- <table class="table table-striped custom-table" *ngIf="data">
+		<tr>
+			<th scope="col">Roll Number:</th>
+            <td>{{data?.rollNumber}}</td>
+		</tr>
+		<tr>
+            <th scope="col">Name:</th>
+            <td>{{data?.studentName}}</td>
+		</tr>
+        <tr>
+            <th scope="col">Date Of Birth:</th>
+            <td>{{data?.dateOfBirth}}</td>
+		</tr>
+        <tr>
+            <th scope="col">Score:</th>
+            <td>{{data?.score}}</td>
+		</tr>
+        <tr>
+            <td><button mat-raised-button color="primary" (click)="goBack()" class="back-button">Back</button></td>
+		</tr>
+</table> -->
+
+
+<div class="container">
+  <table class="table table-striped custom-table" *ngIf="data">
+    <tr>
+      <th scope="col">Roll Number:</th>
+      <td>{{data?.rollNumber}}</td>
+    </tr>
+    <tr>
+      <th scope="col">Name:</th>
+      <td>{{data?.studentName}}</td>
+    </tr>
+    <tr>
+      <th scope="col">Date Of Birth:</th>
+      <td>{{data?.dateOfBirth}}</td>
+    </tr>
+    <tr>
+      <th scope="col">Score:</th>
+      <td>{{data?.score}}</td>
+    </tr>
+    <tr>
+      <td colspan="2">
+        <div class="back-button-container">
+          <button mat-raised-button color="primary" (click)="goBack()" class="back-button">Back</button>
+      </div>
+      </td>
+    </tr>
+  </table>
+</div>

@@ -1,0 +1,129 @@
+.container {
+  margin-top: 5rem;
+}
+
+.header {
+  background-color: #554994;
+  padding: 2rem;
+  border-radius: 10px;
+  color: #ffffff;
+  font-family: Arial, sans-serif;
+  transition: background-color 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.header:hover {
+  background-color: #45377d;
+}
+
+.login-heading {
+  font-size: 32px;
+  margin-bottom: 0.5rem;
+  transition: font-size 0.3s ease;
+  position: relative;
+}
+
+.login-heading:before {
+  content: "";
+  position: absolute;
+  bottom: -10px;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background-color: #ffffff;
+  transform: scaleX(0);
+  transition: transform 0.3s ease;
+}
+
+.login-heading:hover:before {
+  transform: scaleX(1);
+  font-size: 36px; /* Increased font size on hover */
+
+}
+
+.as-heading {
+  font-size: 24px;
+  margin-top: 0;
+  transition: font-size 0.3s ease;
+}
+
+.as-heading:hover {
+  font-size: 28px;
+}
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  margin-right: -15px;
+  margin-left: -15px;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.justify-content-around {
+  justify-content: space-around;
+}
+
+.col-lg-4,
+.col-md-6 {
+  flex: 0 0 50%;
+  max-width: 50%;
+}
+
+.login-button {
+  width: 50%;
+  padding: 1rem;
+  font-size: 18px;
+  font-weight: bold;
+  border-radius: 10px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.2);
+  position: relative;
+  overflow: hidden;
+}
+
+.login-button:before {
+  content: "";
+  position: absolute;
+  top: -100%;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(255, 255, 255, 0.3);
+  transition: top 0.3s;
+  z-index: -1;
+}
+
+.teacher-button {
+  background-color: #554994;
+  color: #fff;
+}
+
+.teacher-button:hover {
+  transform: translateY(-3px);
+}
+
+.student-button {
+  background-color: #F675A8;
+  color: #fff;
+}
+
+.student-button:hover {
+  transform: translateY(-3px);
+}
+
+.login-button:hover:before {
+  top: 0;
+}
+.logo {
+  width: 40px; /* Adjust the width as needed */
+  height: 40px; /* Set height to match width for a circular shape */
+  border-radius: 50%; /* Make it rounded */
+  transition: transform 0.3s ease; /* Add transition for smooth effect */
+}
+
+.logo:hover {
+  transform: rotate(360deg); /* Apply rotation on hover */
+}

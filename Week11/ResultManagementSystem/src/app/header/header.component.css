@@ -1,0 +1,40 @@
+.row {
+  background-color: #293462;
+}
+
+.custom-header {
+  color: white;
+  padding: 5px;
+  text-align: center;
+  position: relative;
+  font-family: "Playfair Display", serif; /* Change the font family to Playfair Display */
+}
+
+.custom-header h2 {
+  font-size: 24px;
+  font-weight: bold;
+  transition: transform 0.3s; /* Add transition for smooth effect */
+  font-style: italic; /* Add font style, e.g., italic */
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4); /* Add text shadow for a subtle effect */
+}
+
+.custom-header:hover h2 {
+  transform: rotate(5deg); /* Apply transformation on hover */
+}
+
+.custom-header:before {
+  content: "";
+  /* position: absolute; */
+  top: 100%;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  /* background-color: rgba(0, 0, 0, 0.5); Change the hovering color here */
+  transition: top 0.3s; /* Add transition for smooth effect */
+}
+
+@media screen and (max-width: 768px) {
+  .custom-header {
+    font-size: 24px;
+  }
+}

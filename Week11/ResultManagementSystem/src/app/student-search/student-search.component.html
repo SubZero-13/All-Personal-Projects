@@ -1,0 +1,52 @@
+<!-- <div class="container mt-5">
+    <h1>Find Result</h1>
+    <form #stuSearch="ngForm" (ngSubmit)="stuSearch.form.valid && studentSearch(stuSearch.value)" method="POST">
+        <div class="form-group row">
+            <label class="col-sm-2 col-form-label" for="rollNumber">Roll Number</label>
+            <div class="col-sm-10">
+                <input class="form-control" type="number" name="rollNumber" required ngModel>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label class="col-sm-2 col-form-label" for="name">Name</label>
+            <div class="col-sm-10">
+                <input class="form-control" type="text" name="studentName" required ngModel>
+            </div>
+        </div>
+        <div *ngIf="stuSearch.form.invalid && (stuSearch.submitted || stuSearch.form.touched)"
+            class="alert alert-danger">Please fill out all fields.</div>
+        <button class="btn btn-info" [disabled]="stuSearch.form.invalid">Submit</button>
+        <button class="btn btn-danger" type="reset">Clear</button>
+    </form>
+    <button [routerLink]="['']" class="btn btn-secondary mt-2">Back</button>
+</div> -->
+
+<div class="container mt-5">
+    <h1>Find Result</h1>
+    <div class="student-error-message" *ngIf="error">{{ error }}</div>
+    <form #stuSearch="ngForm" (ngSubmit)="stuSearch.form.valid && studentSearch(stuSearch.value)" method="POST">
+      <div class="form-group row">
+        <label class="col-sm-2 col-form-label" for="rollNumber">Roll Number</label>
+        <div class="col-sm-10">
+          <input class="form-control" type="number" name="rollNumber" required ngModel #rollNumber="ngModel">
+          <p class="error-message" *ngIf="rollNumber.touched && rollNumber.invalid">Roll Number is required.</p>
+        </div>
+      </div>
+      
+      <div class="form-group row">
+        <label class="col-sm-2 col-form-label" for="name">Name</label>
+        <div class="col-sm-10">
+          <input class="form-control" type="text" name="studentName" required ngModel #studentName="ngModel">
+          <p class="error-message" *ngIf="studentName.touched && studentName.invalid">Student Name is required.</p>
+        </div>
+      </div>
+      
+      <div class="d-flex justify-content-between">
+        <button class="btn btn-info" [disabled]="stuSearch.form.invalid && (rollNumber.invalid || studentName.invalid)">Submit</button>
+        <button class="btn btn-danger" type="reset" (click)="clear()">Clear</button>
+        <button [routerLink]="['']" class="btn btn-secondary">Back</button>
+      </div>
+    </form>
+  </div>
+  
+  
