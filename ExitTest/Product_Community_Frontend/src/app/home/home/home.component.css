@@ -1,0 +1,90 @@
+.container {
+  background-image: url(/assets/images/background.jpg);
+  background-size: cover;
+  background-position: center;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.content {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  margin-top: 15%;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+  color: #3C6255;
+  height: 10%;
+  width: 50%;
+  font-weight: bold;
+  background-color: rgba(250, 235, 215, 0.8);
+}
+
+.content h3 {
+  margin-top: auto;
+  margin-bottom: auto;
+  margin-left: 5px;
+  margin-right: 12px;
+  font-weight: bold;
+}
+
+.icon-text {
+  display: flex;
+  align-items: center;
+}
+
+.icon {
+  margin-right: 10px;
+  font-size: 24px;
+}
+
+.description {
+  text-align: center;
+  margin-top: 15%;
+}
+
+.description h2 {
+  color: #EEE9DA;
+}
+
+.description p {
+  color: #EEE9DA;
+}
+
+@media only screen and (max-width: 1024px) {
+  .content {
+    width: 70%;
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .content {
+    width: 80%;
+  }
+}
+
+@media only screen and (max-width: 480px) {
+  .content {
+    margin-top: 30%;
+    width: 90%;
+  }
+  .description {
+    margin-top: 30%;
+  }
+}
+
+@media only screen and (max-width: 300px) {
+  .content {
+    display: flex;
+    flex-direction: column;
+    margin-top: 40%;
+    height: 15%;
+    width: 90%;
+  }
+  .description {
+    margin-top: 40%;
+  }
+}

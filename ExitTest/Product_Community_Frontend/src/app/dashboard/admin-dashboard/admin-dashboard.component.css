@@ -1,0 +1,61 @@
+/* admin-dashboard.component.css */
+.custom-table {
+    margin-top: 5%;
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  .table-container {
+    background-color: #f5f5f5;
+    padding: 20px;
+    border-radius: 5px;
+  }
+  
+  th.mat-header-cell,
+  td.mat-cell {
+    text-align: center;
+    padding: 10px;
+  }
+  
+  th.mat-header-cell {
+    background-color: #333;
+    color: #fff;
+  }
+  
+  td.mat-cell {
+    background-color: #fff;
+  }
+  
+  .action-cell a {
+    text-decoration: none;
+    margin: 0 5px;
+    color: #333;
+    transition: color 0.3s ease;
+  }
+  
+  .action-cell a:hover {
+    color: #ff5722;
+  }
+  
+  .mat-paginator {
+    margin-top: 20px;
+  }
+  
+  .action-link {
+    display: inline-block;
+    margin-right: 10px;
+    color: blue;
+    text-decoration: underline;
+    cursor: pointer;
+  }
+  
+  .action-link:hover {
+    text-decoration: none;
+  }
+
+  p {
+    text-align: center;
+    font-style: italic;
+    color: #888;
+  }
+  

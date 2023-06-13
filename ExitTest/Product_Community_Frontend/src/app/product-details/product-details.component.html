@@ -1,0 +1,50 @@
+<!-- Product Details -->
+<div class="container">
+    <div class="product-details">
+      <h2>{{ product.productName }}</h2>
+      <p>Brand: {{ product?.productBrand }}</p>
+      <p>Code: {{ product?.productCode }}</p>
+      <p>Price: {{ product?.productPrice }}</p>
+      <p>Description: {{ product?.productDescription }}</p>
+    </div>
+  
+    <!-- Approved Reviews -->
+    <div *ngIf="approvedReviews && approvedReviews.length > 0" class="approved-reviews">
+      <h3>Approved Reviews</h3>
+      <div *ngFor="let review of approvedReviews">
+        <div class="review-item">
+          <p>{{ review.description }}</p>
+          <div class="rating">
+            <span class="star" [class.full]="review.rating >= 1"></span>
+            <span class="star" [class.full]="review.rating >= 2"></span>
+            <span class="star" [class.full]="review.rating >= 3"></span>
+            <span class="star" [class.full]="review.rating >= 4"></span>
+            <span class="star" [class.full]="review.rating >= 5"></span>
+          </div>
+          <p>Posted by: {{ review.user.email }}</p>
+        </div>
+      </div>
+    </div>
+    
+    <div *ngIf="approvedReviews && approvedReviews.length === 0" class="approved-reviews">
+      <p>No reviews till now</p>
+    </div>
+<div class="add-review">
+    <h3>Add Review</h3>
+    <div>
+      <textarea [(ngModel)]="description" placeholder="Review description" required
+        (blur)="descriptionTouched = true" [ngClass]="{ 'error': descriptionTouched && descriptionInvalid }"></textarea>
+      <p class="error-message" *ngIf="descriptionTouched && descriptionInvalid">Field is mandatory</p>
+      <input type="number" [(ngModel)]="rating" placeholder="Rating" min="0" max="5"
+        (blur)="ratingTouched = true" [ngClass]="{ 'error': ratingTouched && ratingInvalid }">
+      <p class="error-message" *ngIf="ratingTouched && ratingInvalid">Rating should be between 0 and 5</p>
+    </div>
+  </div>
+  
+    <!-- Buttons -->
+    <div class="buttons">
+      <button [disabled]="!(description && rating >= 0 && rating <= 5)" (click)="addReview()">Submit Review</button>
+      <button (click)="goBack()">Back</button>
+    </div>
+  </div>
+  
