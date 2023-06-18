@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { ProductService } from '../services/product.service';
 import { Router } from '@angular/router';
+import { ActiveToast, Toast, ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-add-product',
@@ -12,11 +13,11 @@ export class AddProductComponent implements OnInit {
   productForm!: FormGroup;
   errorMessages: { [key: string]: string } = {};
   successMessage: string = '';
-
   constructor(
     private formBuilder: FormBuilder,
     private productService: ProductService,
-    private router: Router
+    private router: Router,
+    private toastr: ToastrService
   ) { }
 
   ngOnInit() {
@@ -40,7 +41,6 @@ export class AddProductComponent implements OnInit {
   wordCountValidator(control: FormControl): { [key: string]: any } | null {
     const value: string = control.value;
     const words: string[] = value ? value.trim().split(/\s+/) : [];
-
     if (words.length > 300) {
       return { maxlength: true };
     }
@@ -50,15 +50,19 @@ export class AddProductComponent implements OnInit {
 
   onSubmit() {
     if (this.productForm.invalid) {
-      this.markAllFieldsAsTouched();
       return;
     }
 
     this.productService.getProductByCode(this.formControls['productCode'].value)
       .subscribe(
         () => {
-          this.errorMessages['productCode'] = 'Product already exists with the given code';
-          
+          const code = this.formControls['productCode'].value;
+          this.toastr.warning('Redirecting to Product Details', 'Product already exists.')
+
+          setTimeout(() => {
+            this.router.navigate(['/product-details', code]);
+          }, 5000);
+
         },
         () => {
           this.errorMessages['productCode'] = '';
@@ -74,7 +78,9 @@ export class AddProductComponent implements OnInit {
           this.productService.addProduct(product)
             .subscribe(
               () => {
-                this.successMessage = 'Product added successfully';
+                this.toastr.success('', 'Product Added Successfully', {
+                  timeOut: 3000,
+                })
                 this.productForm.reset();
               },
               error => {
@@ -83,12 +89,6 @@ export class AddProductComponent implements OnInit {
             );
         }
       );
-  }
-
-  markAllFieldsAsTouched() {
-    Object.values(this.productForm.controls).forEach(control => {
-      control.markAsTouched();
-    });
   }
 
   clearForm() {
@@ -100,6 +100,5 @@ export class AddProductComponent implements OnInit {
   redirectToDashboard() {
     this.router.navigate(['/user-dashboard']);
   }
-
 }
 

@@ -33,16 +33,16 @@
               <div class='cvp'>
                 <h5 class="card-title font-weight-bold">{{product.productName}}</h5>
                 <p class="card-text">Brand:{{product.productBrand}}</p>
-                <p class="btn cart px-auto">CODE:{{product.productCode}}</p> <br>
+                <p class="btn cart px-auto">CODE:{{product.productCode}}</p>
                 <p class="btn cart px-auto">Rs:{{product.productPrice}}</p>
               </div>
             </div>
-            <button (click)="viewProductDetails(product)" class="view-details-button">View Details</button>
+            <button (click)="viewProductDetails(product)" class="view-details-button">Details</button>
           </div>
         </div>
       </div>
       <div>
-        <h1 *ngIf="products && products.length==0" class="text-center">No Products Avialable</h1>
+        <h1 *ngIf="products && products.length==0" class="text-center">No Products Available</h1>
       </div>
     </div>
   </div>

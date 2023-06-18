@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { UserService } from 'src/app/services/user.service';
-
+import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 @Component({
   selector: 'app-navbar',
   templateUrl: './navbar.component.html',
@@ -10,9 +10,11 @@ import { UserService } from 'src/app/services/user.service';
 export class NavbarComponent {
   isLoggedIn = false; // Set to true if a user is logged in
   isAdmin = false; // Set to true if the logged-in user is an admin
-  username:string='';
-
-  constructor(private userService: UserService, private router: Router) { 
+  username:string='Loading';
+  menuOpen = false;
+  isSmallScreen = false;
+  isMenuOpen = false;
+  constructor(public userService: UserService, private router: Router, private breakpointObserver: BreakpointObserver) { 
   }
 
 
@@ -25,8 +27,17 @@ export class NavbarComponent {
         this.isAdmin = true;
       }
     });
-    console.warn(localStorage.getItem('currentUser'));
+    this.breakpointObserver.observe([
+      Breakpoints.Small,
+      Breakpoints.HandsetPortrait,
+      Breakpoints.HandsetLandscape
+    ]).subscribe(result => {
+      this.isSmallScreen = result.matches;
+    });
+  }
 
+  toggleMenu() {
+    this.isMenuOpen = !this.isMenuOpen;
   }
 
   logout() {
@@ -36,3 +47,7 @@ export class NavbarComponent {
     this.router.navigate(['']);
   }
 }
+function admin() {
+  throw new Error('Function not implemented.');
+}
+

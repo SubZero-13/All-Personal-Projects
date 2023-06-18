@@ -26,6 +26,8 @@ import { PendingReviewsComponent } from './pending-reviews/pending-reviews.compo
 import { ProductDetailsComponent } from './product-details/product-details.component';
 import { FormsModule } from '@angular/forms';
 import { AddProductComponent } from './add-product/add-product.component';
+import { ToastrModule} from 'ngx-toastr';
+import { MatMenuModule } from '@angular/material/menu';
 
 
 
@@ -58,7 +60,16 @@ import { AddProductComponent } from './add-product/add-product.component';
     MatTableModule,
     MatPaginatorModule,
     MatSortModule,
-    FormsModule
+    FormsModule,
+    MatMenuModule,
+    ToastrModule.forRoot({
+      timeOut: 5000,
+      positionClass: 'toast-top-right',
+      closeButton: false,
+      progressBar:true,
+      progressAnimation:'decreasing',
+      toastClass: 'toast-card' // Use the custom CSS class for the toast
+    })
   ],
   providers: [],
   bootstrap: [AppComponent]

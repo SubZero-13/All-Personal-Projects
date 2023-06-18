@@ -4,7 +4,7 @@ import { Review } from '../dataTypes/review';
 import { ProductService } from '../services/product.service';
 import { ReviewService } from '../services/review.service';
 import { UserService } from '../services/user.service';
-import { User } from '../dataTypes/user';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-product-details',
@@ -14,59 +14,82 @@ import { User } from '../dataTypes/user';
 export class ProductDetailsComponent implements OnInit {
   product: any;
   approvedReviews: Review[] = [];
-  description:string = '';
-  rating:number = 0;
-
-  userType:string=''
-
+  description: string = '';
+  rating: number = 0;
+  userType: string = '';
+  isAdmin:boolean = false;
+  avgRating:number = 0;
+  
   descriptionTouched: boolean = false;
+  descriptionInvalid: boolean= false;
   ratingTouched: boolean = false;
+  ratingInvalid: boolean = false;
 
-  get descriptionInvalid(): boolean {
-    return this.descriptionTouched && !this.description;
-  }
-
-  get ratingInvalid(): boolean {
-    return this.ratingTouched && (this.rating < 0 || this.rating > 5);
-  }
 
   constructor(
     private route: ActivatedRoute,
     private productService: ProductService,
     private reviewService: ReviewService,
-    private userService: UserService
+    public userService: UserService,
+    private toastr: ToastrService
   ) { }
 
   ngOnInit(): void {
+    this.isAdmin = localStorage.getItem('admin') === 'true' ? true: false;
     const productCode = this.route.snapshot.paramMap.get('code')!;
-    console.log(productCode)
     const user = this.userService.getCurrentUser();
-    if(user) {
-      if(user.userType.toLowerCase() === 'admin') {
-        this.userType = 'admin';
-      }
+    if (user && user.userType.toLowerCase() === 'admin') {
+      this.userType = 'admin';
     }
     this.getProductDetails(productCode);
     this.getApprovedReviews(productCode);
   }
 
-  getProductDetails(productCode:string): void {
-    // const code = this.route.snapshot.paramMap.get('code');
+  validateDescription() {
+    this.descriptionTouched = true;
+    this.description = this.description.trim(); // Remove leading and trailing spaces
+    const descriptionLength = this.description.length;
+    if (descriptionLength < 20 || descriptionLength > 400) {
+      this.descriptionInvalid = true;
+    } else {
+      this.descriptionInvalid = false;
+    }
+  }  
+
+  getProductDetails(productCode: string): void {
     this.productService.getProductByCode(productCode).subscribe(product => {
       this.product = product;
     });
   }
 
-  getApprovedReviews(productCode:string): void {
+  getApprovedReviews(productCode: string): void {
     this.reviewService.getReviewsByProductCode(productCode).subscribe(
       (reviews) => {
         this.approvedReviews = reviews.filter((review) => review.status === 'Approved');
+        this.calculateAverageRating();
       },
       (error) => {
-        // console.error('Error fetching approved reviews:', error);
         // Handle the error and display an error message to the user
       }
     );
+  }
+
+  calculateAverageRating(): void {
+    const totalReviews = this.approvedReviews.length;
+    if (totalReviews > 0) {
+      const sum = this.approvedReviews.reduce((accumulator, review) => accumulator + review.rating, 0);
+      this.avgRating = sum / totalReviews;
+    }
+  }
+
+  setRating(value: number) {
+    this.rating = value;
+    this.ratingTouched = true;
+    this.validateRating();
+  }
+
+  validateRating() {
+    this.ratingInvalid = this.rating < 1 || this.rating > 5;
   }
 
   addReview(): void {
@@ -80,17 +103,26 @@ export class ProductDetailsComponent implements OnInit {
     };
     this.reviewService.addReview(newReview).subscribe(
       (_addedReview: any) => {
-        // console.log(this.addReview);
+        // Handle the success case
+      this.toastr.success('Wait for Approval', 'Review Added Successfull', {
+        timeOut: 3000,
+      })
+      this.description = '';
+      this.rating = 0;
+      this.descriptionTouched = false;
+      this.ratingTouched = false;
+      this.ratingInvalid = false;
       },
       (error: any) => {
-        // console.error('Error adding review:', error);
+        // Handle the error case
       }
     );
-    this.description = '';
-    this.rating = 0;
   }
 
-  goBack(): void {
+  goBack() {
+    window.history.back();
   }
+  
 }
+
 

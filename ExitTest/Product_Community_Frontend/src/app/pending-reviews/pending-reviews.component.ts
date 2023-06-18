@@ -59,12 +59,12 @@ export class PendingReviewsComponent {
         () => {
           // console.log('Review deleted successfully');
           // Remove the deleted review from the reviews list
-          this.reviews = this.reviews.filter(r => r.reviewId !== review.reviewId);
         },
         (error: string) => {
           // console.error('Error deleting review:', error);
         }
       );
+      this.reviews = this.reviews.filter(r => r.reviewId !== review.reviewId);
     } else {
       // console.error('Error: reviewId is undefined');
     }

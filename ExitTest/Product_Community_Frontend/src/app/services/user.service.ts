@@ -11,6 +11,7 @@ export class UserService {
   private isLoggedInSubject = new BehaviorSubject<boolean>(false);
   isLoggedIn$: Observable<boolean> = this.isLoggedInSubject.asObservable();
   public currentUser: User | null = null;
+  isAdmin:boolean = false;
 
   constructor(private http: HttpClient) {
     this.initializeCurrentUser();
@@ -54,6 +55,8 @@ export class UserService {
         this.currentUser = response;
         this.isLoggedInSubject.next(true);
         localStorage.setItem('currentUser', JSON.stringify(response));
+        this.isAdmin = response.userType === 'Admin' ? true : false;
+        localStorage.setItem('admin', response.userType === 'Admin' ? 'true' : 'false');
       })
     );
   }
@@ -73,11 +76,11 @@ export class UserService {
 
   logout() {
     this.currentUser = null;
+    this.isAdmin = false;
     this.isLoggedInSubject.next(false);
+    localStorage.setItem('admin', 'false');
     localStorage.removeItem('currentUser');
   }
-
-
   isLoggedIn(): boolean {
     return this.isLoggedInSubject.value;
   }
