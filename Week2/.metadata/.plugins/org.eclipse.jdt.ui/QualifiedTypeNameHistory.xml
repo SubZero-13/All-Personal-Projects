@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<qualifiedTypeNameHistroy>
+    <fullyQualifiedTypeName name="com.nagarro.exceptions.InvalidArguments"/>
+    <fullyQualifiedTypeName name="java.util.LinkedList"/>
+    <fullyQualifiedTypeName name="com.nagarro.linkedlist.MyLinkedList"/>
+    <fullyQualifiedTypeName name="javax.swing.text.html.HTMLDocument.Iterator"/>
+    <fullyQualifiedTypeName name="java.util.NoSuchElementException"/>
+    <fullyQualifiedTypeName name="java.util.Iterator"/>
+    <fullyQualifiedTypeName name="java.util.Comparator"/>
+    <fullyQualifiedTypeName name="com.nagarro.exceptions.UnderFlowException"/>
+    <fullyQualifiedTypeName name="com.nagarro.exceptions.KeyNotFoundException"/>
+    <fullyQualifiedTypeName name="com.nagarro.exceptions.NullKeyException"/>
+    <fullyQualifiedTypeName name="java.util.ArrayList"/>
+    <fullyQualifiedTypeName name="com.nagarro.iterator.PriorityQueueIterator"/>
+    <fullyQualifiedTypeName name="com.nagarro.comparable.Compare"/>
+    <fullyQualifiedTypeName name="java.util.Collections"/>
+</qualifiedTypeNameHistroy>

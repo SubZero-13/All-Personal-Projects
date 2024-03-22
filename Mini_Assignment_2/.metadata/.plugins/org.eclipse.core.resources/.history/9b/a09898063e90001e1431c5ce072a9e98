@@ -1,0 +1,7 @@
+package com.nagarro.Mini_Assignment_2.validators;
+
+import org.springframework.validation.BindingResult;
+
+public interface Validator<T> {
+	void validate(T value, BindingResult result);
+}

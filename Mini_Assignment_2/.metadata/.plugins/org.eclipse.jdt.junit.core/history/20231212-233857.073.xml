@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?><testrun name="UserControllerTest" project="Mini_Assignment_2" tests="2" started="2" failures="0" errors="0" ignored="0">
+  <testsuite name="com.nagarro.Mini_Assignment_2.controller.UserControllerTest" time="2.203" displayname="UserControllerTest" uniqueid="[engine:junit-jupiter]/[class:com.nagarro.Mini_Assignment_2.controller.UserControllerTest]">
+    <testcase name="testGetUsers" classname="com.nagarro.Mini_Assignment_2.controller.UserControllerTest" time="2.177" displayname="getUser Test" uniqueid="[engine:junit-jupiter]/[class:com.nagarro.Mini_Assignment_2.controller.UserControllerTest]/[method:testGetUsers()]"/>
+    <testcase name="testCreateUsers" classname="com.nagarro.Mini_Assignment_2.controller.UserControllerTest" time="0.026" displayname="createUser Test" uniqueid="[engine:junit-jupiter]/[class:com.nagarro.Mini_Assignment_2.controller.UserControllerTest]/[method:testCreateUsers()]"/>
+  </testsuite>
+</testrun>

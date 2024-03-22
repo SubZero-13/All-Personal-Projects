@@ -1,0 +1,9 @@
+package com.nagarro.Mini_Assignment_2.validators;
+
+import java.util.Set;
+
+import jakarta.validation.ConstraintViolation;
+
+public interface Validator<T> {
+	Set<ConstraintViolation<T>> validate(T value);
+}

@@ -1,0 +1,19 @@
+package com.nagarro.Mini_Assignment_2.repos;
+
+
+import org.springframework.data.jpa.repository.JpaRepository;
+
+import com.nagarro.Mini_Assignment_2.entities.User;
+
+public interface UserRepository extends JpaRepository<User, Long> {
+
+//	Page<User> findAllByOrderByAge(PageRequest pageRequest);
+//
+//	Page<User> findAllByAgeIsEven(PageRequest pageRequest);
+//
+//	Page<User> findAllByAgeIsOdd(PageRequest pageRequest);
+//
+//	Page<User> findAllByNameLengthIsOdd(PageRequest pageRequest);
+//
+//	Page<User> findAllByNameLengthIsEven(PageRequest pageRequest);
+}

@@ -1,0 +1,12 @@
+package com.nagarro.Mini_Assignment_2.repos;
+
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.jpa.repository.JpaRepository;
+
+import com.nagarro.Mini_Assignment_2.entities.User;
+
+public interface UserRepository extends JpaRepository<User, Long> {
+
+	Page<User> findAllByOrderByAge(PageRequest pageRequest);
+}

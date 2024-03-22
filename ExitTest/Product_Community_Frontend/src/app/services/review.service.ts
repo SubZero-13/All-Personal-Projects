@@ -8,7 +8,7 @@ import { Review } from '../dataTypes/review';
   providedIn: 'root'
 })
 export class ReviewService {
-  private baseUrl = 'http://localhost:8081/reviews';
+  private baseUrl = 'http://172.190.217.126:8080/reviews';
 
   constructor(private http: HttpClient) {}
 

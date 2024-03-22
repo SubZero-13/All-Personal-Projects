@@ -84,6 +84,7 @@ export class AddProductComponent implements OnInit {
                 this.productForm.reset();
               },
               error => {
+                console.log(error.error)
                 this.errorMessages['genericError'] = error.error;
               }
             );

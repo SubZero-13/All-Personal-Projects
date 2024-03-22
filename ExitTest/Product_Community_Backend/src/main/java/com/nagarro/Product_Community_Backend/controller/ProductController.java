@@ -26,6 +26,12 @@ public class ProductController {
 
 	@Autowired
 	ProductServiceImpl prodService;
+	
+	
+	@GetMapping("/test") 
+	public String test() {
+		return "Welcome to backend Api of Product Community";
+	}
 
 	@PostMapping("/addProduct")
 	public ResponseEntity<?> addProduct(@RequestBody Product product) {

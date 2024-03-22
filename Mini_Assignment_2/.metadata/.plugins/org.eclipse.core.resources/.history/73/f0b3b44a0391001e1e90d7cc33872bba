@@ -1,0 +1,120 @@
+package com.nagarro.Mini_Assignment_2.controller;
+
+import static org.junit.jupiter.api.Assertions.*;
+import static org.mockito.ArgumentMatchers.*;
+import static org.mockito.Mockito.*;
+
+import java.util.Arrays;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+import org.mockito.InjectMocks;
+import org.mockito.Mock;
+import org.mockito.MockitoAnnotations;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+
+import com.nagarro.Mini_Assignment_2.controller.UserController;
+import com.nagarro.Mini_Assignment_2.dtos.PageInfo;
+import com.nagarro.Mini_Assignment_2.dtos.UserCreationRequest;
+import com.nagarro.Mini_Assignment_2.dtos.UserResponse;
+import com.nagarro.Mini_Assignment_2.entities.User;
+import com.nagarro.Mini_Assignment_2.serviceImpl.UserService;
+import com.nagarro.Mini_Assignment_2.validators.ValidatorFactory;
+
+class UserControllerTest {
+
+	@Mock
+	private UserService userService;
+
+	@Mock
+	private ValidatorFactory validatorFactory;
+
+	@InjectMocks
+	private UserController userController;
+
+	@BeforeEach
+	void setUp() {
+		MockitoAnnotations.openMocks(this);
+	}
+
+	@Test
+	void testCreateUsers() {
+		// Arrange
+		UserCreationRequest request = new UserCreationRequest();
+		request.setSize(5);
+
+		List<UserResponse> mockUserResponses = Arrays.asList(new UserResponse(), new UserResponse());
+		when(userService.createUser(anyInt())).thenReturn(mockUserResponses);
+
+		// Act
+		ResponseEntity<?> responseEntity = userController.createUsers(request);
+
+		// Assert
+		assertEquals(HttpStatus.OK, responseEntity.getStatusCode());
+		assertEquals(mockUserResponses, responseEntity.getBody());
+	}
+
+//    @Test
+//    void testGetUsers() {
+//        // Arrange
+//        String sortType = "Age";
+//        String sortOrder = "EVEN";
+//        String limit = "10";
+//        String offset = "0";
+//
+//        when(validatorFactory.getValidator(anyString())).thenReturn(mockValidator());
+//        when(userService.getUsers(eq(sortType), eq(sortOrder), anyInt(), anyInt(), any(PageInfo.class)))
+//            .thenReturn(Arrays.asList(new User(), new User()));
+//
+//        // Act
+//        ResponseEntity<Map<String, Object>> responseEntity = userController.getUsers(sortType, sortOrder, limit, offset);
+//
+//        // Assert
+//        assertEquals(HttpStatus.OK, responseEntity.getStatusCode());
+//
+//        Map<String, Object> responseBody = responseEntity.getBody();
+//        assertNotNull(responseBody);
+//        assertTrue(responseBody.containsKey("data"));
+//        assertTrue(responseBody.containsKey("pageInfo"));
+//
+//        List<User> users = (List<User>) responseBody.get("data");
+//        assertNotNull(users);
+//        assertEquals(2, users.size());
+//
+//        PageInfo pageInfo = (PageInfo) responseBody.get("pageInfo");
+//        assertNotNull(pageInfo);
+//        assertFalse(pageInfo.isHasNextPage());
+//        assertFalse(pageInfo.isHasPreviousPage());
+//        assertEquals(2, pageInfo.getTotal());
+//    }
+
+//    private Validator<String> mockValidator() {
+//        return value -> {
+//            // Mock validation logic if needed
+//        };
+//    }
+
+//    @Test
+//    void testGetUsers_InvalidInput() {
+//        // Arrange
+//        String sortType = "InvalidSortType";
+//        String sortOrder = "INVALID";
+//        String limit = "-1";
+//        String offset = "abc";
+//
+//        // Act
+//        ResponseEntity<Map<String, Object>> responseEntity = userController.getUsers(sortType, sortOrder, limit, offset);
+//
+//        // Assert
+//        assertEquals(HttpStatus.BAD_REQUEST, responseEntity.getStatusCode());
+//
+//        Map<String, Object> responseBody = responseEntity.getBody();
+//        assertNotNull(responseBody);
+//        assertTrue(responseBody.containsKey("error"));
+//        assertEquals("Invalid input parameters", responseBody.get("error"));
+//    }
+}

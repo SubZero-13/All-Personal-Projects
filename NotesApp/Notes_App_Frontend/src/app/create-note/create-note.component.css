@@ -1,0 +1,60 @@
+.main-container {
+  padding-top: 50px; /* Adjust this value to leave space for your navbar */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 80vh; /* Adjust this value for desired height */
+}
+
+.card {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  transition: 0.3s;
+  border-radius: 10px;
+}
+
+.card:hover {
+  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+}
+
+.card-header {
+  background-color: #27005d;
+  color: white;
+  text-align: center;
+  padding: 15px;
+  border-radius: 10px 10px 0 0;
+}
+
+.form-label {
+  font-weight: bold;
+}
+
+.craete-btn, .show-btn {
+  outline: 0;
+  grid-gap: 8px;
+  align-items: center;
+  background-color: #27005D;
+  color: #E4F1FF;
+  border: 1px solid #000;
+  border-radius: 4px;
+  cursor: pointer;
+  display: inline-flex;
+  flex-shrink: 0;
+  font-size: 16px;
+  gap: 8px;
+  justify-content: center;
+  line-height: 1.5;
+  overflow: hidden;
+  padding: 8px 15px;
+  text-decoration: none;
+  text-overflow: ellipsis;
+  transition: all 0.14s ease-out;
+  white-space: nowrap;
+  :hover {
+    box-shadow: 4px 4px 0 #000;
+    transform: translate(-4px, -4px);
+  }
+}
+
+.show-btn {
+  background-color: #451952;
+}

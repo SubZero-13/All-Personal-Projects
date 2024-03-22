@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<qualifiedTypeNameHistroy>
+    <fullyQualifiedTypeName name="org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter"/>
+    <fullyQualifiedTypeName name="com.nagarro.config.MVCconfig"/>
+    <fullyQualifiedTypeName name="org.springframework.web.servlet.config.annotation.EnableWebMvc"/>
+    <fullyQualifiedTypeName name="com.nagarro.dao.TshirtStore"/>
+    <fullyQualifiedTypeName name="com.nagarro.constants.Constant"/>
+    <fullyQualifiedTypeName name="com.opencsv.CSVParser"/>
+    <fullyQualifiedTypeName name="com.opencsv.CSVReaderBuilder"/>
+    <fullyQualifiedTypeName name="com.opencsv.CSVParserBuilder"/>
+    <fullyQualifiedTypeName name="com.opencsv.CSVReader"/>
+    <fullyQualifiedTypeName name="com.nagarro.entities.Tshirt"/>
+    <fullyQualifiedTypeName name="java.io.File"/>
+    <fullyQualifiedTypeName name="java.io.IOException"/>
+    <fullyQualifiedTypeName name="java.util.ArrayList"/>
+    <fullyQualifiedTypeName name="com.nagarro.enums.Size"/>
+    <fullyQualifiedTypeName name="com.nagarro.enums.Color"/>
+    <fullyQualifiedTypeName name="com.nagarro.dao.TshirtDao"/>
+    <fullyQualifiedTypeName name="com.nagarro.comparator.PriceComparator"/>
+    <fullyQualifiedTypeName name="com.nagarro.comparator.RatingComparator"/>
+    <fullyQualifiedTypeName name="com.nagarro.comparator.BothComparator"/>
+    <fullyQualifiedTypeName name="com.nagarro.dao.LoginDao"/>
+    <fullyQualifiedTypeName name="org.springframework.stereotype.Controller"/>
+    <fullyQualifiedTypeName name="com.nagarro.dao.SearchDao"/>
+    <fullyQualifiedTypeName name="java.util.List"/>
+    <fullyQualifiedTypeName name="com.nagarro.exceptions.ItemNotPresentException"/>
+    <fullyQualifiedTypeName name="com.nagarro.filereader.CSVFileReader"/>
+    <fullyQualifiedTypeName name="org.springframework.web.servlet.ModelAndView"/>
+    <fullyQualifiedTypeName name="com.nagarro.entities.User"/>
+    <fullyQualifiedTypeName name="org.hibernate.query.Query"/>
+    <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.RequestMapping"/>
+</qualifiedTypeNameHistroy>

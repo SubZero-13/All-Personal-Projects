@@ -109,7 +109,7 @@ public class TshirtDao {
 			}
 		}
 		// Delete records that were deleted from the CSV file
-		List<String> tshirtIds = tshirts.stream().map(Tshirt::getId).collect(Collectors.toList());
+		List<Object> tshirtIds = tshirts.stream().map(Tshirt::getId).collect(Collectors.toList());
 
 		List<Tshirt> existingTshirts = session.createQuery("FROM Tshirt", Tshirt.class).list();
 		for (Tshirt existingTshirt : existingTshirts) {

@@ -1,0 +1,5 @@
+import org.springframework.validation.BindingResult;
+
+public interface Validator<T> {
+	void validate(T value, BindingResult result);
+}

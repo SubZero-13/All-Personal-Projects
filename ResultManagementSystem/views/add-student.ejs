@@ -1,0 +1,36 @@
+<%- include('partials/_header') %>
+    <%- include('partials/_navbar') %>
+        <div class="update-student-all">
+            <div class="filter">
+                <button class="update-student-all-btn" onclick="location.href='/thome'">All students</button>
+            </div>
+        </div>
+        <div class="add-studentcontainer">
+            <form action="/add-student" method="post" class="add-student-form">
+                <h2 class="text-center">Add Student</h2>
+                <p class="text-center" style="font-size: small; color: red;"><%= errorMessage %> </p>
+                <div class="form-group add-student-form-group">
+                    <label for="rollNo" class="add-student-label">Roll No</label>
+                    <input type="text" class="form-control add-student-input" id="rollNo" name="rollNo" required>
+                </div>
+                <div class="form-group add-student-form-group">
+                    <label for="name" class="add-student-label">Name</label>
+                    <input type="text" class="form-control add-student-input" id="name" name="name" required>
+                </div>
+                <div class="form-group add-student-form-group">
+                    <label for="dateOfBirth" class="add-student-label">Date of Birth</label>
+                    <input type="date" class="form-control add-student-input" id="dateOfBirth" name="dateOfBirth"
+                        required min="1995-01-01" max="2016-12-31">
+                </div>
+                <div class="form-group add-student-form-group">
+                    <label for="score" class="add-student-label">Score</label>
+                    <input type="number" class="form-control add-student-input" id="score" name="score" required min="0" max="100">
+                </div>
+                <div class="btn-container">
+                    <button type="submit" class="index-login-btn btn-primary add-student-btn">Submit</button>
+                    <button type="reset" class="index-login-btn btn-secondary add-student-btn">Clear</button>
+                </div>
+            </form>
+        </div>
+
+        <%- include('partials/_footer') %>

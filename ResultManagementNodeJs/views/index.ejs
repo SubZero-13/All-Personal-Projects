@@ -1,0 +1,15 @@
+<%- include('partials/_header') %>
+    <%- include('partials/_navbar') %>
+        <main id="index-main">
+            <div class="mb-4">
+                <h1 class="stroked">Login As</h1>
+            </div>
+            <div id="index-button">
+                <!-- <a href="/login"> -->
+                <button class="index-login-btn" onclick="location.href='/login'">Teacher</button>
+                <!-- </a> -->
+                <button class="index-login-btn" onclick="location.href='/student-login'">Student</button>
+
+            </div>
+        </main>
+        <%- include('partials/_footer') %>

@@ -1,0 +1,801 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Slab&display=swap');
+
+/* Element styling starts here */
+body {
+    margin: 0;
+    padding: 0;
+    background-image: url('../img/background.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    font-family: 'Roboto Slab', serif;
+}
+
+/* NavBar Css Start */
+.navbar {
+    display: flex;
+    background-color: #000000;
+    text-align: center;
+    padding: 10px 0;
+    align-items: center;
+    justify-content: center;
+}
+
+.navbar a.navbar-brand {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    color: #C3073F;
+    text-decoration: none;
+    font-weight: bold;
+    height: 100%;
+}
+
+.navbar a.navbar-brand:hover {
+    color: #fff;
+    text-shadow: 0 0 5px #C3073F,
+        0 0 25px #C3073F,
+        0 0 50px #C3073F,
+        0 0 100px #C3073F;
+}
+
+/* NavBar Css end */
+
+
+/* index page css start */
+#index-main {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 85vh;
+}
+
+/* Add space between buttons */
+#index-button button {
+    margin: 8px;
+}
+
+.stroked {
+    position: relative;
+    font-size: 30px;
+    -webkit-text-fill-color: white;
+    -webkit-text-stroke-width: 1px;
+    -webkit-text-stroke-color: #C3073F;
+}
+
+.stroked::before {
+    content: '';
+    background-color: #C3073F;
+    position: absolute;
+    left: 0;
+    bottom: 3px;
+    width: 100%;
+    height: 8px;
+    z-index: -1;
+    transition: all 0.3s ease-in-out;
+}
+
+/* Pseudo-element effect on hover */
+.stroked:hover::before {
+    bottom: 0;
+    height: 100%;
+}
+
+
+.index-login-btn {
+    width: 140px;
+    height: 45px;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 2.5px;
+    font-weight: 500;
+    color: #000;
+    background-color: #fff;
+    border: none;
+    border-radius: 45px;
+    box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease 0s;
+    cursor: pointer;
+    outline: none;
+}
+
+.index-login-btn:hover {
+    background-color: #C3073F;
+    box-shadow: 0px 15px 20px rgba(229, 61, 46, 0.4);
+    color: #fff;
+    transform: translateY(-7px);
+}
+
+/* Media Queries for Responsive Design */
+@media screen and (max-width: 768px) {
+
+    /* Adjust font size and button width for smaller screens */
+    .stroked {
+        font-size: 24px;
+    }
+
+    .index-login-btn {
+        width: 120px;
+        font-size: 10px;
+    }
+}
+
+/* index page css end */
+
+
+
+/* Teacher Login Page css start */
+
+#tlogin-container-fluid {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 85vh;
+    overflow: hidden;
+}
+
+#tlogin-container {
+    max-width: 400px;
+    width: 100%;
+    padding: 20px;
+    border: 1px solid #C3073F;
+    background: #15172b;
+    border-radius: 10px;
+    box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px;
+    color: #F1F1F2;
+}
+
+#tlogin-email,
+#tlogin-pass {
+    font-weight: bold;
+}
+
+#login-error {
+    color: red;
+    margin-top: 10px;
+}
+
+#temail-label,
+#tpass-label {
+    color: #c2c2c5;
+    display: block;
+    font-size: 14px;
+    height: 16px;
+    margin-top: 20px;
+    margin-bottom: 5px;
+}
+
+#email,
+#password {
+    background: transparent;
+    border: none;
+    /* Use "none" to remove the default border */
+    border-bottom: 2px solid #C3073F;
+    /* Add a bottom border */
+    color: #f2f2f2;
+    font-size: 14px;
+    height: 35px;
+    line-height: 30px;
+    outline: none !important;
+    width: 100%;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+#email:focus,
+#password:focus {
+    border: none;
+    outline: none;
+}
+
+/* Teacher Login page css End */
+
+
+/* Teacher Home Css starts */
+.thome-user {
+    margin-right: 1em;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.user-name {
+    color: white;
+}
+
+.ri-user-line {
+    font-size: 24px;
+    color: white;
+}
+
+.thome-btn-logout {
+    margin-top: 10px;
+}
+
+.thome-container {
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* Add Student Button Styles */
+.thome-btn-add {
+    position: relative;
+    float: right;
+    margin-right: 10px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.thome-btn {
+    --b: 3px;
+    --s: .45em;
+    --color: white;
+
+    padding: calc(.5em + var(--s)) calc(.9em + var(--s));
+    color: var(--color);
+    --_p: var(--s);
+    background:
+        conic-gradient(from 90deg at var(--b) var(--b), #0000 90deg, var(--color) 0) var(--_p) var(--_p)/calc(100% - var(--b) - 2*var(--_p)) calc(100% - var(--b) - 2*var(--_p));
+    transition: .3s linear, color 0s, background-color 0s;
+    outline: var(--b) solid #0000;
+    outline-offset: .6em;
+    font-size: 16px;
+
+    border: 0;
+
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+}
+
+.thome-btn:hover,
+.thome-btn:focus-visible {
+    --_p: 0px;
+    outline-color: var(--color);
+    outline-offset: .05em;
+}
+
+.thome-btn:active {
+    background: var(--color);
+    color: #0b0a0a;
+}
+
+
+.thome-table {
+    width: 100%;
+    max-height: 300px;
+    overflow-y: auto;
+    margin: 0 auto;
+    background-color: #D6D6E7;
+    color: black;
+    border-collapse: collapse;
+    table-layout: fixed;
+}
+
+.thome-table th {
+    color: white;
+}
+
+.thome-table th,
+.thome-table td {
+    padding: 12px;
+    text-align: center;
+    border: 1px solid #444;
+}
+
+.thome-thead-dark {
+    background-color: #23282d;
+}
+
+.thome-table a {
+    text-decoration: none;
+    color: black;
+}
+
+.thome-no-student {
+    font-size: 30px;
+    text-align: center;
+    margin-top: 20px;
+    color: red;
+}
+
+.ri-pencil-fill,
+.ri-close-circle-fill {
+    font-size: 24px;
+}
+
+@media (max-width: 768px) {
+    .thome-table {
+        width: 100%;
+    }
+}
+
+/* Teacher Home css Ends
+
+
+
+/* Add Student Css Starts */
+.add-studentcontainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 80vh;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.add-student-form {
+    width: 100%;
+    max-width: 400px;
+    padding: 20px;
+    border: 1px solid #C3073F;
+    background: #15172b;
+    border-radius: 10px;
+    box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px;
+    color: #F1F1F2;
+    margin-bottom: 5px;
+}
+
+.add-student-form-group {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.add-student-label {
+    display: block;
+    margin-bottom: 5px;
+    color: #c2c2c5;
+}
+
+.add-student-input[type="text"],
+.add-student-input[type="date"],
+.add-student-input[type="number"] {
+    color: white;
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-bottom: 2px solid #C3073F;
+    outline: none;
+    background: none;
+}
+
+.add-student-input[type="text"]:focus,
+.add-student-input[type="date"]:focus,
+.add-student-input[type="number"]:focus {
+    outline: none;
+}
+
+.btn-container {
+    display: flex;
+    justify-content: space-between;
+}
+
+.add-student-btn {
+    padding: 5px 10px;
+    cursor: pointer;
+}
+
+.btn-primary {
+    background-color: #3498db;
+    color: #fff;
+}
+
+.btn-secondary {
+    background-color: #ccc;
+    color: #fff;
+}
+
+@media (max-width: 768px) {
+    .container {
+        padding: 10px;
+    }
+}
+
+/* Add student Css ends */
+
+
+/* Update Student CSS Starts */
+
+.update-student-all {
+    margin-top: 5px;
+    margin-left: 10px;
+}
+
+
+.update-student-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 80vh;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.update-form {
+    width: 100%;
+    max-width: 400px;
+    padding: 20px;
+    border: 1px solid #C3073F;
+    background: #15172b;
+    border-radius: 10px;
+    box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px;
+    color: #F1F1F2;
+    margin-bottom: 5px;
+}
+
+.update-student-form-group {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.update-student-label {
+    display: block;
+    margin-bottom: 5px;
+    color: #c2c2c5;
+}
+
+.update-student-input[type="text"],
+.update-student-input[type="date"],
+.update-student-input[type="number"] {
+    color: white;
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-bottom: 2px solid #C3073F;
+    outline: none;
+    background: none;
+}
+
+.update-student-input[type="text"]:focus,
+.update-student-input[type="date"]:focus,
+.update-student-input[type="number"]:focus {
+    outline: none;
+}
+
+.invalid-feedback {
+    color: #f00;
+}
+
+.update-student-all-btn {
+    font-size: 16px;
+    letter-spacing: 2px;
+    text-decoration: none;
+    text-transform: uppercase;
+    color: #000;
+    cursor: pointer;
+    border: 3px solid;
+    padding: 0.25em 0.5em;
+    box-shadow: 1px 1px 0px 0px, 2px 2px 0px 0px, 3px 3px 0px 0px, 4px 4px 0px 0px, 5px 5px 0px 0px;
+    position: relative;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+}
+
+.update-student-all-btn:active {
+    box-shadow: 0px 0px 0px 0px;
+    top: 5px;
+    left: 5px;
+}
+
+@media (min-width: 768px) {
+    .update-student-all-btn {
+        padding: 0.25em 0.75em;
+    }
+}
+
+
+
+
+@media (max-width: 768px) {
+    .container {
+        max-width: 90%;
+    }
+}
+
+/* Update Student CSS Ends */
+
+
+
+/* Student Login Page CSS Starts */
+
+.student-login-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 80vh;
+}
+
+.student-login-form {
+    width: 100%;
+    max-width: 400px;
+    padding: 20px;
+    border: 1px solid #C3073F;
+    background: #15172b;
+    border-radius: 10px;
+    box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px;
+    color: #F1F1F2;
+}
+
+
+.student-login-from-grp {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.student-login-label {
+    display: block;
+    margin-bottom: 5px;
+    color: #c2c2c5;
+}
+
+
+.student-login-input[type="text"],
+.student-login-input[type="date"] {
+    color: white;
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-bottom: 2px solid #C3073F;
+    outline: none;
+    background: none;
+}
+
+.student-login-input[type="text"]:focus,
+.student-login-input[type="date"]:focus {
+    outline: none;
+}
+
+.student-login-btn-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.student-login-btn {
+    margin-top: 5px;
+    background: none;
+    font-size: 1rem;
+    padding: 0.5rem 0;
+    color: white;
+    text-transform: uppercase;
+    width: 150px;
+}
+
+.student-login-btn {
+    border: 1px solid #C3073F;
+    position: relative;
+    overflow: hidden;
+}
+
+.student-login-btn:hover {
+    box-shadow: 1px 1px 25px 10px rgba(247, 127, 127, 0.4);
+}
+
+.student-login-btn:before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(120deg,
+            transparent,
+            rgba(146, 148, 248, 0.4),
+            transparent);
+    transition: all 650ms;
+}
+
+.student-login-btn:hover:before {
+    left: 100%;
+}
+
+.student-login-back {
+    background-color: white;
+    text-decoration: none;
+    color: black;
+    text-align: center;
+}
+
+/* Student Login Page CSS Ends */
+
+
+
+/* Student Detail Page CSS Starts */
+
+.student-detail-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 85vh;
+
+}
+
+.details-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    background-color: #15172b;
+}
+
+.details-table td {
+    padding: 10px;
+    border: 1px solid #444;
+}
+
+.details-table strong {
+    display: block;
+    margin-bottom: 5px;
+}
+
+.details-table p {
+    margin: 0;
+}
+
+.student-detail-back {
+    padding: 15px 80px;
+    margin: 10px 4px;
+    color: #fff;
+    text-transform: uppercase;
+    text-align: center;
+    position: relative;
+    text-decoration: none;
+    display: inline-block;
+}
+
+.student-detail-back {
+    border: none;
+}
+
+.student-detail-back::before {
+    content: '';
+    position: absolute;
+    left: 0px;
+    bottom: 0px;
+    z-index: -1;
+    width: 100%;
+    height: 100%;
+    background: #15172b;
+    box-shadow: inset 0px 0px 0px #C3073F;
+    display: block;
+    -webkit-transition: all 0.4s cubic-bezier(.5, .24, 0, 1);
+    transition: all 0.4s cubic-bezier(.5, .24, 0, 1)
+}
+
+/* if you want it to show from the right use -300px instead */
+.student-detail-back:hover::before {
+    box-shadow: inset 300px 0px 0px #C3073F;
+}
+
+/* Student Detail page CSS Ends */
+
+
+
+
+/* Student Not Found page style starts */
+#not-found-container {
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+#student-not-found-container {
+    text-align: center;
+}
+
+#not-found-heading {
+    font-size: 6em;
+    margin: 0;
+    color: #e74c3c;
+}
+
+#not-found-message {
+    font-size: 1.5em;
+    margin: 0;
+    color: #333;
+}
+
+#back-to-home {
+    display: block;
+    margin-top: 20px;
+    color: #007bff;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+/* Student Not Found css ends here */
+
+/* Error Pages Css Starts */
+.error-container {
+    min-height: 100vh;
+    font: normal 100%/1.15 "Merriweather", serif;
+    background-color: #1eaae6;
+    color: #fff;
+}
+
+.wrapper {
+    position: relative;
+    max-width: 1298px;
+    height: auto;
+    margin: 2em auto 0 auto;
+}
+
+.errorBox {
+    max-width: 70%;
+    min-height: auto;
+    margin: 0 auto;
+    padding: 1em 1em;
+    text-align: center;
+    background:
+        url("https://www.dropbox.com/s/xq0841cp3icnuqd/flame.png?raw=1") no-repeat top 8em center/96px 96px,
+        transparent url("https://www.dropbox.com/s/w7qqrcvhlx3pwnf/desktop-pc.png?raw=1") no-repeat top 10em center/96px 96px;
+}
+
+.error-heading,
+.error-para:not(:last-of-type) {
+    text-shadow: 0 0 6px #216f79;
+}
+
+.error-heading {
+    margin: 0 0 1rem 0;
+    font-size: 9em;
+}
+
+.error-para {
+    margin-bottom: 0.5em;
+    font-size: 4em;
+}
+
+.error-para:first-of-type {
+    margin-top: 4em;
+}
+
+.error-para>a {
+    border-bottom: 1px dashed #216f79;
+    font-style: italic;
+    text-decoration: none;
+    color: #216f79;
+}
+
+.error-para>a:hover {
+    text-shadow: 0 0 6px #216f79;
+}
+
+.error-para img {
+    vertical-align: bottom;
+}
+
+
+/* error page Css ends here */
+
+
+
+
+
+/* Ensure buttons are on the same line and responsive */
+@media (max-width: 576px) {
+    main {
+        padding: 0 15px;
+    }
+
+    .btn {
+        width: 100%;
+        margin-bottom: 10px;
+    }
+
+    .d-flex.justify-content-center {
+        flex-direction: column;
+    }
+}

@@ -1,0 +1,22 @@
+<%- include('partials/_header') %>
+    <%- include('partials/_navbar') %>
+        <div class="container-fluid" id="tlogin-container-fluid">
+            <div class="login-container" id="tlogin-container">
+                <h1 class="text-center">Login</h1>
+                <p class="text-center" id="login-error"><%= errorMessage %> </p>
+                <form id="login-form">
+                    <div class="form-group">
+                        <label for="email" id="temail-label">Email</label>
+                        <input type="text" id="email" name="email" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email" id="tpass-label">Password</label>
+                        <input type="password" id="password" name="password" class="form-control" required>
+                    </div>
+                    <div class="text-center m-2">
+                        <button type="submit" class="btn btn-primary index-login-btn">Login</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <%- include('partials/_footer') %>

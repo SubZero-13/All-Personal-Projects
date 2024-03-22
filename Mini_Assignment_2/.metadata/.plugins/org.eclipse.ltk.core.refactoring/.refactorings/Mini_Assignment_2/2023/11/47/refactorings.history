@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Move element &apos;CustomException.java&apos; to &apos;Mini_Assignment_2/src/main/java/com.nagarro.Mini_Assignment_2.exception&apos;&#x0D;&#x0A;- Original project: &apos;Mini_Assignment_2&apos;&#x0D;&#x0A;- Destination element: &apos;Mini_Assignment_2/src/main/java/com.nagarro.Mini_Assignment_2.exception&apos;&#x0D;&#x0A;- Original element: &apos;com.nagarro.Mini_Assignment_2.CustomException.java&apos;&#x0D;&#x0A;- Update references to refactored element" description="Move compilation unit" destination="/src\/main\/java&lt;com.nagarro.Mini_Assignment_2.exception" element1="/src\/main\/java&lt;com.nagarro.Mini_Assignment_2{CustomException.java" files="0" flags="589830" folders="0" id="org.eclipse.jdt.ui.move" patterns="*" policy="org.eclipse.jdt.ui.moveResources" qualified="false" references="true" stamp="1700817887061" units="1" version="1.0"/>
+</session>

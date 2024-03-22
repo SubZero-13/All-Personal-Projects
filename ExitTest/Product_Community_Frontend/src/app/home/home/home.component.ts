@@ -10,44 +10,46 @@ import { UserService } from 'src/app/services/user.service';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent {
-    reviews!: Review[];
-    users!: User[];
-    noOfUsers: number = 0;
-    noOfReviews: number = 0;
-    activeUsers: number = 0;
+  reviews!: Review[];
+  users!: User[];
+  noOfUsers: number = 0;
+  noOfReviews: number = 0;
+  activeUsers: number = 0;
   response: any;
 
-    constructor(private reviewService: ReviewService, private userService: UserService) { }
+  constructor(private reviewService: ReviewService, private userService: UserService) { }
 
 
-    ngOnInit() {
-      this.loadReviews();
-      this.loadUsers();
-    }
-  
-    loadReviews() {
-      this.reviewService.getAllReviews().subscribe(
-        (response) => {
-          this.reviews = response;
-          this.noOfReviews = this.reviews.length;
-        },
-        (error: any) => {
-          // console.error('Error occurred while fetching reviews:', error);
-        }
-      );
-    }
+  ngOnInit() {
+    this.loadReviews();
+    this.loadUsers();
+  }
+
+  loadReviews(): void {
+    this.reviewService.getAllReviews().subscribe({
+      next: (response: any) => {
+        this.reviews = response;
+        this.noOfReviews = this.reviews.length;
+      },
+      error: (error: any) => {
+        // console.error('Error occurred while fetching reviews:', error);
+      }
+    });
+  }
 
 
-    loadUsers() {
-      this.userService.getAllUsers().subscribe(
-        (response: any) => {
-          this.users = response;
-          this.noOfUsers = this.users.length;
-          this.activeUsers = this.users.filter(user => user.userType.toLowerCase() !== 'admin').length;
-        },
-        (error: any) => {
-          // console.error('Error occurred while fetching users:', error);
-        }
-      );
-    }
+
+  loadUsers(): void {
+    this.userService.getAllUsers().subscribe({
+      next: (response: User[]) => {
+        this.users = response;
+        this.noOfUsers = this.users.length;
+        this.activeUsers = this.users.filter(user => user.userType.toLowerCase() !== 'admin').length;
+      },
+      error: (error: any) => {
+        // console.error('Error occurred while fetching users:', error);
+      }
+    });
+  }
+
 }

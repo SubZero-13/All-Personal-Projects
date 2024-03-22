@@ -7,7 +7,7 @@ import { User } from '../dataTypes/user';
   providedIn: 'root'
 })
 export class UserService {
-  private baseUrl = 'http://localhost:8081';
+  private baseUrl = 'http://172.190.217.126:8080';
   private isLoggedInSubject = new BehaviorSubject<boolean>(false);
   isLoggedIn$: Observable<boolean> = this.isLoggedInSubject.asObservable();
   public currentUser: User | null = null;

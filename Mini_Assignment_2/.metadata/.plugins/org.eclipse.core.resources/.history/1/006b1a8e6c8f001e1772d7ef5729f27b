@@ -1,0 +1,26 @@
+package com.nagarro.Mini_Assignment_2.repos;
+
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Query;
+
+import com.nagarro.Mini_Assignment_2.entities.User;
+
+public interface UserRepository extends JpaRepository<User, Long> {
+
+	Page<User> findAllByOrderByAge(PageRequest pageRequest);
+
+	@Query("SELECT u FROM User u WHERE FUNCTION('BITAND', u.age, 1) = 0")
+	Page<User> findAllByAgeIsEven(PageRequest pageRequest);
+
+	@Query("SELECT u FROM User u WHERE FUNCTION('BITAND', u.age, 1) = 1")
+	Page<User> findAllByAgeIsOdd(PageRequest pageRequest);
+
+	// Add the custom query for name length as well
+	@Query("SELECT u FROM User u WHERE LENGTH(u.name) % 2 = 1")
+	Page<User> findAllByNameLengthIsOdd(PageRequest pageRequest);
+
+	@Query("SELECT u FROM User u WHERE LENGTH(u.name) % 2 = 0")
+	Page<User> findAllByNameLengthIsEven(PageRequest pageRequest);
+}

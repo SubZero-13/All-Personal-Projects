@@ -1,0 +1,143 @@
+package com.nagarro.initializer.controller;
+
+import java.util.HashMap;
+import java.util.List;
+
+import javax.servlet.http.HttpServletRequest;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.client.RestTemplate;
+import org.springframework.web.servlet.ModelAndView;
+
+import com.nagarro.initializer.entities.Author;
+import com.nagarro.initializer.entities.Book;
+import com.nagarro.initializer.services.BookService;
+
+@Controller
+@RequestMapping("/book")
+public class BookController {
+
+	@Autowired
+	private BookService bookService;
+
+	@PostMapping("/register")
+	public String registerBook(@ModelAttribute("book") Book book, HttpServletRequest req, Model model) {
+
+		Book existingBook = bookService.getBookById(book.getId());
+		int id = Integer.parseInt(req.getParameter("userid"));
+
+		if (existingBook != null) {
+			model.addAttribute("errorMessage", "Book is already present in the Library");
+			return req.getContextPath() + "/AddBook.jsp";
+		}
+
+		Author auth = bookService.getAuthor(book.getAuthor().getId());
+
+		book.setId(book.getId());
+		book.setAuthor(auth);
+		book.setDate("" + java.time.LocalDate.now());
+
+		bookService.addBook(book);
+
+		List<Book> list = bookService.getAllBooks();
+
+		model.addAttribute("books", list);
+		model.addAttribute("userid", id);
+		String path = req.getContextPath();
+
+		return path + "/book-list.jsp";
+
+	}
+
+	@RequestMapping("/update")
+	public String updateBooks(@ModelAttribute("book") Book book, Model model, HttpServletRequest req) {
+
+		int id = Integer.parseInt(req.getParameter("userid"));
+
+		Author auth = bookService.getAuthor(book.getAuthor().getId());
+		book.setAuthor(auth);
+
+		// Set the book's date to today's date
+		book.setDate("" + java.time.LocalDate.now());
+
+		// Update the book
+		bookService.updateBook(book);
+
+		List<Book> list = bookService.getAllBooks();
+
+		model.addAttribute("books", list);
+		model.addAttribute("userid", id);
+
+		String path = req.getContextPath();
+		return path + "/book-list.jsp";
+	}
+
+	@RequestMapping("/showFormForUpdate/{id}")
+	public String showForUpdate(HttpServletRequest req, @PathVariable int id, Model model) {
+
+		int userid = Integer.parseInt(req.getParameter("userid"));
+
+		Book book = bookService.getBookById(id);
+
+		Author[] author = bookService.getAllAuthor();
+
+		HashMap<Integer, String> hm = new HashMap<Integer, String>();
+
+		for (Author auth : author)
+			hm.put(auth.getId(), auth.getName());
+
+		model.addAttribute("authorMap", hm);
+
+		model.addAttribute("book", book);
+
+		model.addAttribute("id", id);
+
+		model.addAttribute("userid", userid);
+
+		String path = req.getContextPath();
+
+		return path + "/EditBook.jsp";
+	}
+
+	@RequestMapping("/formForNewBook")
+	public String bookForm(HttpServletRequest req, Model model) {
+
+		Author[] author = bookService.getAllAuthor();
+
+		int id = Integer.parseInt(req.getParameter("userid"));
+
+		HashMap<Integer, String> hm = new HashMap<Integer, String>();
+
+		for (Author auth : author)
+			hm.put(auth.getId(), auth.getName());
+
+		model.addAttribute("authorMap", hm);
+		model.addAttribute("book", new Book());
+		model.addAttribute("userid", id);
+
+		String path = req.getContextPath();
+
+		return path + "/AddBook.jsp";
+
+	}
+
+	@RequestMapping("/delete/{id}")
+	public String deleteBook(HttpServletRequest req, Model model, @PathVariable int id) {
+
+		List<Book> list = bookService.deleteBook(id);
+
+		model.addAttribute("books", list);
+
+		String path = req.getContextPath();
+
+		return path + "/book-list.jsp";
+	}
+
+}

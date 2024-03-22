@@ -1,0 +1,45 @@
+@import url('https://fonts.googleapis.com/css2?family=Knewave&display=swap');
+.header {
+  background-color: #27005D;
+  z-index: 999;
+}
+.heading {
+  color: white;
+  font-size: 24px;
+  margin: 0;
+  font-family: 'Knewave', cursive;
+}
+.welcome-text {
+  color: white;
+  margin: 0;
+  font-weight: bold;
+}
+
+.button {
+  text-decoration: none;
+  display: inline-block;
+  outline: none;
+  cursor: pointer;
+  font-size: 18px;
+  padding: 0 12px;
+  line-height: 20px;
+  height: 30px;
+  max-height: 30px;
+  background: none;
+  font-weight: 700;
+  border: 0;
+  border-radius: 0;
+  color: #FFF5E0;
+  transition-timing-function: ease-in-out;
+  transition-property: background;
+  transition-duration: 150ms;
+  box-shadow: none;
+  :hover {
+    background: #f7f9fd;
+  }
+}
+
+.link {
+  text-decoration: none;
+  color: aliceblue;
+}

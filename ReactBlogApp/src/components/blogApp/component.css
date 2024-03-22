@@ -1,0 +1,195 @@
+.blog-detail-container {
+  margin-top: 4rem;
+}
+.blog-detail {
+  margin-top: 4rem;
+  margin-bottom: 4rem;
+  border-radius: 4%;
+  background-color: #e4f1ff;
+  color: #27005d;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+
+.action-buttons {
+  color: #27005d;
+}
+
+.error::-webkit-scrollbar {
+  display: none;
+}
+
+.error {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}
+
+.back-button {
+  font-family: "Open Sans", sans-serif;
+  font-size: 16px;
+  letter-spacing: 2px;
+  text-decoration: none;
+  text-transform: uppercase;
+  color: #000;
+  cursor: pointer;
+  border: 3px solid;
+  padding: 0.25em 0.5em;
+  box-shadow: 1px 1px 0px 0px, 2px 2px 0px 0px, 3px 3px 0px 0px, 4px 4px 0px 0px,
+    5px 5px 0px 0px;
+  position: relative;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+}
+
+.back-button:active {
+  box-shadow: 0px 0px 0px 0px;
+  top: 5px;
+  left: 5px;
+}
+
+@media (min-width: 768px) {
+  .back-button {
+    padding: 0.25em 0.75em;
+  }
+}
+
+.edit-button:hover,
+.delete-button:hover,
+.like-button:hover, .edit-button:focus,
+.delete-button:focus,
+.like-button:focus {
+  animation: pulse 1s;
+  box-shadow: 0 0 0 2em transparent;
+}
+
+@keyframes pulse {
+  0% {
+    box-shadow: 0 0 0 0 #27005d;
+  }
+}
+
+.edit-button {
+  --color: #050505;
+  --hover: #1d9405;
+}
+
+.delete-button,
+.like-button {
+  --color: #050505;
+  --hover: #940404;
+}
+
+.edit-button:hover,
+.delete-button:hover,
+.like-button:hover .edit-button:focus,
+.delete-button:focus,
+.like-button:focus {
+  border-color: var(--hover);
+  color: #060505;
+}
+
+.edit-button,
+.delete-button,
+.like-button {
+  background: none;
+  border: 2px solid;
+  font: inherit;
+  line-height: 1;
+  margin: 0.5em;
+  padding: 0.5em 2.5em;
+}
+.like-button {
+  padding: 0.4em 2.5em;
+}
+
+
+
+.form-container {
+  background-color: #E4F1FF;
+  color: #27005d;
+  flex-direction: column;
+  justify-content: center;
+  margin-top: 5rem;
+  margin-bottom: 1rem;
+  width: 100%;
+  height: 100%;
+  max-width: 30rem;
+  max-height: 450px;
+  border-radius: 3%;
+}
+
+.form-heading::-webkit-scrollbar {
+  display: none;
+}
+
+.form-heading {
+  margin: 1rem 0;
+  -ms-overflow-style: none;  
+  scrollbar-width: none;
+}
+
+
+.form::-webkit-scrollbar {
+  display: none;
+}
+
+/* Hide scrollbar for IE, Edge and Firefox */
+.form {
+  -ms-overflow-style: none;  
+  scrollbar-width: none;  
+}
+
+.form-control {
+  margin: 0 3rem;
+  width: 80%;
+}
+
+.text-area::-webkit-scrollbar {
+  display: none;
+}
+.text-area {
+  -ms-overflow-style: none;  
+  scrollbar-width: none; 
+}
+
+
+.add-btn, .edit-blog-button {
+  cursor: pointer;
+  margin: 1rem;
+  border: none;
+  background: none;
+  padding: 0.2rem 1.5rem;
+  font-size: 1.2rem;
+}
+
+
+.add-btn, .edit-blog-button  {
+  --c:  #1a034a; 
+  
+  box-shadow: 0 0 0 .1em inset var(--c); 
+  --_g: linear-gradient(var(--c) 0 0) no-repeat;
+  background: 
+    var(--_g) calc(var(--_p,0%) - 100%) 0%,
+    var(--_g) calc(200% - var(--_p,0%)) 0%,
+    var(--_g) calc(var(--_p,0%) - 100%) 100%,
+    var(--_g) calc(200% - var(--_p,0%)) 100%;
+  background-size: 50.5% calc(var(--_p,0%)/2 + .5%);
+  outline-offset: .1em;
+  transition: background-size .4s, background-position 0s .4s;
+}
+.add-btn:hover, .edit-blog-button:hover {
+  --_p: 100%;
+  transition: background-position .4s, background-size 0s;
+  color: #E4F1FF;
+}
+.add-btn:active, .edit-blog-button:active {
+  box-shadow: 0 0 9e9q inset #0009; 
+  background-color: var(--c);
+  color: #E4F1FF;
+}
+
+
+
+
+
+

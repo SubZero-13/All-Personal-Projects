@@ -22,16 +22,23 @@
     {
       "rollNumber": 12733,
       "studentName": "Virat Kohli",
-      "dateOfBirth": "1998-04-18",
-      "score": 100,
+      "dateOfBirth": "2024-07-19",
+      "score": 870,
       "id": 6
     },
     {
-      "rollNumber": 14272,
-      "studentName": "Ryan Gosling",
-      "dateOfBirth": "2000-04-06",
+      "rollNumber": 16281,
+      "studentName": "Virat Kohli",
+      "dateOfBirth": "2000-06-08",
       "score": 92,
-      "id": 7
+      "id": 8
+    },
+    {
+      "rollNumber": 75882,
+      "studentName": "Anish Bansal",
+      "dateOfBirth": "2023-05-02",
+      "score": 99,
+      "id": 9
     }
   ]
 }

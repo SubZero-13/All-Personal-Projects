@@ -1,5 +1,6 @@
 package com.nagarro.servlets.products;
 
+import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
@@ -36,9 +37,15 @@ public class SaveProductServlet extends HttpServlet {
 			int imagesize = (int) file.getSize();
 
 			String imageFileName = file.getSubmittedFileName(); // get selected image file name
+			
+			String basePath = getServletContext().getRealPath("/");
+			String uploadPath = basePath + "images/" + imageFileName;
+			
+			File directory = new File(uploadPath);
+			if (!directory.exists()) {
+			    directory.mkdirs();
+			}
 
-			String uploadPath = "C:\\Users\\aniketkumar01\\Desktop\\aniket-kumar\\Week7\\Advance_Java_Assignment_3\\src\\main\\webapp\\images\\"
-					+ imageFileName; // upload path where we have to upload our actual image
 
 			byte[] data;
 //FOR STORING IMAGE
@@ -75,6 +82,7 @@ public class SaveProductServlet extends HttpServlet {
 
 		} catch (Exception e) {
 			e.printStackTrace();
+			response.sendRedirect("home.jsp");
 		}
 
 	}

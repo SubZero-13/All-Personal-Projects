@@ -1,0 +1,27 @@
+<div class="main-container">
+  <div class="container mt-5">
+    <div class="row" *ngIf="loggedIn()" >
+      <!-- Content section here -->
+      <div class="col-md-6 notes" *ngIf="loggedIn()">
+        <button
+          class="createnotes"
+          type="button"
+          routerLink="/createnotes"
+        >Create Notes
+        </button>
+      </div>
+      <div class="col-md-6 notes" *ngIf="loggedIn()">
+        <button
+          class="shownotes"
+          type="button"
+          routerLink="/listnotes"
+        >
+        Browse Notes
+        </button>
+      </div>
+    </div>
+    <div *ngIf="!loggedIn()" class="para-div">
+      <p class="para">Every Day, Your Way: Notes, Reminders, and Beyond</p>
+    </div>
+  </div>
+</div>

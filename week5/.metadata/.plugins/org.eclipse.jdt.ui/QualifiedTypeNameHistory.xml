@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<qualifiedTypeNameHistroy>
+    <fullyQualifiedTypeName name="java.io.IOException"/>
+    <fullyQualifiedTypeName name="com.opencsv.CSVParser"/>
+    <fullyQualifiedTypeName name="com.opencsv.CSVReader"/>
+    <fullyQualifiedTypeName name="com.opencsv.CSVParserBuilder"/>
+    <fullyQualifiedTypeName name="com.opencsv.CSVReaderBuilder"/>
+    <fullyQualifiedTypeName name="java.io.FileNotFoundException"/>
+    <fullyQualifiedTypeName name="java.io.FileReader"/>
+    <fullyQualifiedTypeName name="java.util.Scanner"/>
+    <fullyQualifiedTypeName name="com.nagarro.enums.Color"/>
+    <fullyQualifiedTypeName name="com.nagarro.tshirtdetails.TshirtInput"/>
+    <fullyQualifiedTypeName name="java.util.ArrayList"/>
+    <fullyQualifiedTypeName name="java.awt.Color"/>
+    <fullyQualifiedTypeName name="com.nagarro.searching.Search"/>
+    <fullyQualifiedTypeName name="java.util.Collections"/>
+    <fullyQualifiedTypeName name="java.util.List"/>
+    <fullyQualifiedTypeName name="com.nagarro.tshirtdetails.Tshirt"/>
+    <fullyQualifiedTypeName name="com.nagarro.csvreader.CSVReaderFile"/>
+    <fullyQualifiedTypeName name="java.util.Comparator"/>
+    <fullyQualifiedTypeName name="com.nagarro.exceptions.ItemNotPresentException"/>
+    <fullyQualifiedTypeName name="java.nio.file.WatchService"/>
+    <fullyQualifiedTypeName name="java.nio.file.FileSystems"/>
+    <fullyQualifiedTypeName name="java.nio.file.Paths"/>
+    <fullyQualifiedTypeName name="java.nio.file.Path"/>
+    <fullyQualifiedTypeName name="java.nio.file.StandardWatchEventKinds"/>
+    <fullyQualifiedTypeName name="java.nio.file.WatchKey"/>
+    <fullyQualifiedTypeName name="java.nio.file.WatchEvent"/>
+    <fullyQualifiedTypeName name="java.util.Objects"/>
+    <fullyQualifiedTypeName name="com.nagarro.csvfiles.CSVFolderWatcher"/>
+    <fullyQualifiedTypeName name="java.io.File"/>
+</qualifiedTypeNameHistroy>

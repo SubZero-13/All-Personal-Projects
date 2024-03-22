@@ -8,7 +8,7 @@ import { Product } from '../dataTypes/product';
 })
 export class ProductService {
   private headers = new HttpHeaders({ 'Content-Type': 'application/json' });
-  private BASE_URL = "http://localhost:8081/products";
+  private BASE_URL = "http://172.190.217.126:8080/products";
   constructor(private http: HttpClient) { }
 
   private handleError(error: HttpErrorResponse): Observable<never> {

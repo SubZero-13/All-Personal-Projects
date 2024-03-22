@@ -41,8 +41,6 @@ export class AuthComponent implements OnInit {
     }
   };
   
-
-
   constructor(private formBuilder: FormBuilder, private userService:UserService, private router: Router) { }
 
   ngOnInit() {
@@ -91,7 +89,6 @@ export class AuthComponent implements OnInit {
     }    
   }
   
-  
 
   login() {
     // Implement login logic here
@@ -119,6 +116,7 @@ export class AuthComponent implements OnInit {
           }
         },
         error: (error: any) => {
+          alert(error.error);
           this.loginError = 'Invalid email or password';
         }
       });
@@ -151,7 +149,7 @@ export class AuthComponent implements OnInit {
           // this.router.navigate(['/user-dashboard']);
         },
         error: (error) => {          
-          this.signupError = 'Email already exists';
+          this.signupError = 'User already exists';
         }
       });
     }
@@ -176,9 +174,6 @@ export class AuthComponent implements OnInit {
     return '';
   }
   
-  
-  
-
 }
 
 

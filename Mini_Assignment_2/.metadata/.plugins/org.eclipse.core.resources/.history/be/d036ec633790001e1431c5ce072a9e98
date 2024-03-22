@@ -1,0 +1,23 @@
+package com.nagarro.Mini_Assignment_2.validators;
+
+import org.springframework.stereotype.Component;
+
+@Component
+public class NumericValidator implements Validator {
+
+    private static final NumericValidator instance = new NumericValidator();
+
+    private NumericValidator() {
+        // private constructor to prevent instantiation
+    }
+
+    public static NumericValidator getInstance() {
+        return instance;
+    }
+
+    @Override
+    public boolean validate(String input) {
+        // Validate if the input is a numeric value
+        return input.matches("\\d+");
+    }
+}

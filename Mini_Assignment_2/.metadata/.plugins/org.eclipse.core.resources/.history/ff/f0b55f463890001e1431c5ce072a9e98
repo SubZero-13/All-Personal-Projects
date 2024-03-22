@@ -1,0 +1,27 @@
+package com.nagarro.Mini_Assignment_2.validators;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
+
+@Component
+public class ValidatorFactory {
+
+	@Autowired
+	private NumericValidator numericValidator;
+
+	@Autowired
+	private EnglishAlphabetsValidator englishAlphabetsValidator;
+
+	public Validator getValidator(String parameter) {
+		// Determine the type of validator based on the parameter type
+		if (isNumeric(parameter)) {
+			return (Validator) numericValidator;
+		} else {
+			return englishAlphabetsValidator;
+		}
+	}
+
+	private boolean isNumeric(String input) {
+		return input.matches("\\d+");
+	}
+}

@@ -1,0 +1,23 @@
+package com.nagarro.Mini_Assignment_2.validators;
+
+import org.springframework.stereotype.Component;
+
+@Component
+public class EnglishAlphabetsValidator implements Validator {
+
+	private static final EnglishAlphabetsValidator instance = new EnglishAlphabetsValidator();
+
+	private EnglishAlphabetsValidator() {
+		// private constructor to prevent instantiation
+	}
+
+	public static EnglishAlphabetsValidator getInstance() {
+		return instance;
+	}
+
+	@Override
+	public boolean validate(String input) {
+		// Validate if the input contains only English alphabets
+		return input.matches("[a-zA-Z]+");
+	}
+}

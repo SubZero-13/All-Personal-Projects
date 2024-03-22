@@ -1,0 +1,101 @@
+@import url('https://fonts.googleapis.com/css2?family=Caveat&display=swap');
+.note-card {
+  background-color: #f7f7f7;
+  border-radius: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  cursor: pointer;
+}
+
+.note-card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  border: 1px solid #0c0c0c;
+  border-radius: 20px;
+}
+
+.card-title {
+  color: #121212;
+  font-weight: bold;
+  text-align: center;
+  font-size: 25px;
+}
+
+.card-text {
+  color: #333;
+  text-align: center;
+}
+
+/* Optional: Add animation for hover effect */
+.note-card:hover .card-body {
+  transition: background-color 0.2s ease;
+  background-color: #cacbcc;
+  color: #fff;
+  border-radius: 20px;
+}
+
+.empty-note {
+  margin: 12% auto;
+  padding: 4rem 3rem;
+  border-radius: 6px;
+  background: #f2effc;
+  color: #27005D;
+  font-family: 'Caveat', cursive;
+  width: 40%;
+  transition: all 0.3s;
+}
+.empty-note:hover {
+  background: #27005D;
+  color: white;
+}
+
+.note-heading {
+  font-family: 'Caveat', cursive;
+  font-weight: bolder;
+  width: fit-content;
+  margin: 0 auto;
+  margin-top: 1%;
+  padding: 1% 5%;
+  color:  #27005D;
+  border-radius: 15px;
+}
+
+.createnotes {
+  align-self: center;
+  background-color: #fff;
+  background-image: none;
+  background-position: 0 90%;
+  background-repeat: repeat no-repeat;
+  background-size: 4px 3px;
+  border-radius: 15px 225px 255px 15px 15px 255px 225px 15px;
+  border-style: solid;
+  border-width: 2px;
+  box-shadow: rgba(0, 0, 0, .2) 15px 28px 25px -18px;
+  box-sizing: border-box;
+  color: #41403e;
+  cursor: pointer;
+  display: inline-block;
+  font-family: Neucha, sans-serif;
+  font-size: 1rem;
+  line-height: 23px;
+  outline: none;
+  padding: .75rem;
+  text-decoration: none;
+  transition: all 235ms ease-in-out;
+  border-bottom-left-radius: 15px 255px;
+  border-bottom-right-radius: 225px 15px;
+  border-top-left-radius: 255px 15px;
+  border-top-right-radius: 15px 225px;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+}
+
+.createnotes:hover {
+  box-shadow: rgba(0, 0, 0, .3) 2px 8px 8px -5px;
+  transform: translate3d(0, 2px, 0);
+}
+
+.createnotes:focus {
+  box-shadow: rgba(0, 0, 0, .3) 2px 8px 4px -6px;
+}

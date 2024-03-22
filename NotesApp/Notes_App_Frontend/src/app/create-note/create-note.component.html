@@ -1,0 +1,102 @@
+<div class="main-container">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-md-6">
+        <div class="card">
+          <div class="card-header">
+            <h2>Create Note</h2>
+          </div>
+          <div class="card-body">
+            <form [formGroup]="addPostForm" (ngSubmit)="createNote()">
+              <div class="mb-3">
+                <label for="title" class="form-label">Title:</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="title"
+                  formControlName="title"
+                />
+                <div *ngIf="addPostForm.get('title')?.touched">
+                  <div
+                    *ngIf="addPostForm.get('title')?.hasError('required')"
+                    class="text-danger"
+                  >
+                    Title is required.
+                  </div>
+                  <div
+                    *ngIf="
+                      addPostForm.get('title')?.hasError('specialChars') &&
+                      !addPostForm.get('title')?.hasError('required')
+                    "
+                    class="text-danger"
+                  >
+                    Title can only contain @, ;, *, +, and -.
+                  </div>
+                  <div
+                    *ngIf="
+                      addPostForm.get('title')?.hasError('maxlength') &&
+                      !addPostForm.get('title')?.hasError('required') &&
+                      !addPostForm.get('title')?.hasError('specialChars')
+                    "
+                    class="text-danger"
+                  >
+                    Title cannot exceed 500 characters.
+                  </div>
+                </div>
+              </div>
+              <div class="mb-3">
+                <label for="description" class="form-label">Description:</label>
+                <textarea
+                  id="description"
+                  class="form-control"
+                  formControlName="description"
+                ></textarea>
+                <div *ngIf="addPostForm.get('description')?.touched">
+                  <div
+                    *ngIf="addPostForm.get('description')?.hasError('required')"
+                    class="text-danger"
+                  >
+                    Description is required.
+                  </div>
+                  <div
+                    *ngIf="
+                      addPostForm
+                        .get('description')
+                        ?.hasError('specialChars') &&
+                      !addPostForm.get('description')?.hasError('required')
+                    "
+                    class="text-danger"
+                  >
+                    Description can only contain @, ;, *, +, and -.
+                  </div>
+                  <div
+                    *ngIf="
+                      addPostForm.get('description')?.hasError('maxlength') &&
+                      !addPostForm.get('description')?.hasError('required') &&
+                      !addPostForm.get('description')?.hasError('specialChars')
+                    "
+                    class="text-danger"
+                  >
+                    Description cannot exceed 500 characters.
+                  </div>
+                </div>
+              </div>
+              <div
+                class="mb-3 d-flex justify-content-between align-items-center"
+              >
+                <button
+                  type="submit"
+                  class="craete-btn"
+                  [disabled]="addPostForm.invalid"
+                >
+                  Craft
+                </button>
+                <a routerLink="/listnotes" class="show-btn">List Notes</a>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

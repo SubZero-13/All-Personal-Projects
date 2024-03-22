@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename compilation unit &apos;com.nagarro.servlets.LoginServlets.java&apos; to &apos;LoginServlet.java&apos;&#x0D;&#x0A;- Original project: &apos;Servlet_Assignment&apos;&#x0D;&#x0A;- Original element: &apos;com.nagarro.servlets.LoginServlets.java&apos;&#x0D;&#x0A;- Renamed element: &apos;com.nagarro.servlets.LoginServlet.java&apos;" description="Rename compilation unit &apos;LoginServlets.java&apos;" flags="2" id="org.eclipse.jdt.ui.rename.compilationunit" input="/src\/main\/java&lt;com.nagarro.servlets{LoginServlets.java" name="LoginServlet.java" references="false" stamp="1682250733710" version="1.0"/>
+</session>

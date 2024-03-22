@@ -1,0 +1,58 @@
+<%- include('partials/_header') %>
+    <%- include('partials/_navbar') %>
+        <div class="thome-user">
+            <p class="user-name"><i class="ri-user-line"></i> Hi, <%= name %>
+            </p>
+            <button class="thome-btn thome-btn-logout" onclick="location.href='/logout'">Logout</button>
+        </div>
+        <div class="thome-container">
+            <button class="thome-btn-add thome-btn" onclick="location.href='/add-student'">
+                <span class="text-gradient">Add Student</span>
+            </button>
+            <% if(students.length> 0) { %>
+                <table class="thome-table">
+                    <thead class="thome-thead-dark">
+                        <tr>
+                            <th>Roll No</th>
+                            <th>Name</th>
+                            <th>DOB</th>
+                            <th>Score</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <% for(var i=0; i < students.length; i++) { %>
+                        <tbody>
+                            <tr>
+                                <td>
+                                    <%= students[i].rollNo %>
+                                </td>
+                                <td>
+                                    <%= students[i].name %>
+                                </td>
+                                <td>
+                                    <% var dob=new Date(students[i].dateOfBirth); var day=dob.getDate(); var
+                                        monthIndex=dob.getMonth(); var year=dob.getFullYear(); var months=['Jan', 'Feb'
+                                        , 'Mar' , 'Apr' , 'May' , 'Jun' , 'Jul' , 'Aug' , 'Sep' , 'Oct' , 'Nov' , 'Dec'
+                                        ]; var formattedDate=day + ' ' + months[monthIndex] + ' ' + year; %>
+                                        <%= formattedDate %>
+                                </td>
+                                <td>
+                                    <%= students[i].score %>
+                                </td>
+                                <td>
+                                    <a href="/update-student?rollNo=<%= students[i].rollNo %>" class="btn update">
+                                        <span class="text-gradient"><i class="ri-pencil-fill"></i></span>
+                                    </a>
+                                    <a href="/delete/<%= students[i].rollNo %>" class="btn delete">
+                                        <span class="text-gradient"><i class="ri-close-circle-fill"></i></span>
+                                    </a>
+                                </td>
+                            </tr>
+                        </tbody>
+                        <% } %>
+                </table>
+                <% } else { %>
+                    <div class="thome-no-student">No students available</div>
+                    <% } %>
+        </div>
+        <%- include('partials/_footer') %>

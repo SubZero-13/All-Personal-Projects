@@ -7,9 +7,17 @@
 }
 
 h1 {
-  color: #333;
   text-align: center;
   margin-bottom: 20px;
+  font-weight: bold;
+  color: #ffffff;
+  background-color: #293462;
+  transition: color 0.3s ease-in, background-color 0.3s ease-in;
+}
+
+h1:hover {
+  color: black; /* New color on hover */
+  background-color: #ACBCFF; /* New background color on hover */
 }
 
 .form-group {

@@ -1,0 +1,97 @@
+@import url('https://fonts.googleapis.com/css2?family=PT+Serif+Caption&display=swap');
+.main-container {
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+
+.d-flex {
+  display: flex;
+  align-items: center;
+}
+
+.me-3 {
+  margin-right: 1rem; 
+}
+
+/* Style the "Create Notes" and "Show Notes" buttons */
+.createnotes,
+.shownotes {
+  background-color: #27005d;
+  color: white;
+  margin-top: 1rem;
+  padding: 10px 20px;
+  font-size: 16px;
+  border: none;
+  transition: background-color 0.3s ease;
+}
+
+/* .createnotes:hover,
+.shownotes:hover {
+  background-color: #0f2c59;
+} */
+
+.notes {
+  margin-top: 15%;
+}
+
+.para {
+  font-weight: bolder;
+  color: aliceblue;
+  font-size: 30px;
+  text-align: center;
+}
+
+.para-div {
+  margin-top: 15%;
+  padding: 4%;
+  background-color: rgba(15, 44, 89, 0.7); 
+  text-align: left; 
+  max-width: 60%; 
+  margin-left: auto; 
+  margin-right: auto;
+  font-family: 'PT Serif Caption', serif;
+}
+
+.createnotes, .shownotes {
+  --border: 8px;    
+  --slant: 0.7em;   
+  --color: #0f2c59;
+  
+  font-size: 28px;
+  padding: 0.4em 1.2em;
+  border: none;
+  cursor: pointer;
+  font-weight: bold;
+  color: var(--color);
+  background: 
+     linear-gradient(to bottom left,var(--color)  50%,#0000 50.1%) top right,
+     linear-gradient(to top   right,var(--color)  50%,#0000 50.1%) bottom left;
+  background-size: calc(var(--slant) + 1.3*var(--border)) calc(var(--slant) + 1.3*var(--border));
+  background-repeat: no-repeat;
+  box-shadow:
+    0 0 0 200px inset var(--s,#0000),
+    0 0 0 var(--border) inset var(--color);
+  clip-path: 
+      polygon(0 0, calc(100% - var(--slant)) 0, 100% var(--slant),
+              100% 100%, var(--slant) 100%,0 calc(100% - var(--slant))
+             );
+  transition: color var(--t,0.3s), background-size 0.3s;
+}
+.createnotes:focus-visible, .shownotes:focus-visible {
+  outline-offset: calc(-1*var(--border));
+  outline: var(--border) solid #000c;
+  clip-path: none;
+  background-size: 0 0;
+}
+.createnotes:hover,
+.createnotes:active, .shownotes:hover, .shownotes:active{
+  background-size: 100% 100%;
+  color: #fff;
+  --t: 0.2s 0.1s;
+}
+.createnotes:active, .shownotes:active {
+  --s: #0005;
+  transition: none;
+}

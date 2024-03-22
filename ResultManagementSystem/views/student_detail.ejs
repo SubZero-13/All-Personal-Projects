@@ -1,0 +1,43 @@
+<%- include('partials/_header') %>
+    <%- include('partials/_navbar') %>
+        <div class="container mt-2 student-detail-container text-light">
+            <h3>Student Result</h3>
+            <% if(student) { %>
+                <div class="student-details">
+                    <table class="details-table">
+                        <tr>
+                            <td><strong>Roll Number:</strong></td>
+                            <td>
+                                <%= student.rollNo %>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><strong>Name:</strong></td>
+                            <td>
+                                <%= student.name %>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><strong>Date of Birth:</strong></td>
+                            <td>
+                                <% var dob=new Date(student.dateOfBirth); var day=dob.getDate(); var
+                                    monthIndex=dob.getMonth(); var year=dob.getFullYear(); var months=['Jan', 'Feb'
+                                    , 'Mar' , 'Apr' , 'May' , 'Jun' , 'Jul' , 'Aug' , 'Sep' , 'Oct' , 'Nov' , 'Dec' ];
+                                    var formattedDate=day + ' ' + months[monthIndex] + ' ' + year; %>
+                                    <%= formattedDate %>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><strong>Score:</strong></td>
+                            <td>
+                                <%= student.score %>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+                <a href="/student-login" class="student-detail-back">
+                    Back
+                  </a>
+                <% } %>
+        </div>
+        <%- include('partials/_footer') %>
